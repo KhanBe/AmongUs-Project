@@ -53,9 +53,12 @@
     <UnityVersion>2020.3.30f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\UI\Scripts\MainMenuUI.cs" />
     <Compile Include="Assets\UI\Scripts\SettingsUI.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
-    <Compile Include="Assets\UI\Scripts\MainMenuUI.cs" />
+    <Compile Include="Assets\Scripts\PlayerColor.cs" />
+    <Compile Include="Assets\UI\Main Menu Crew\Scripts\FloatingCrew.cs" />
+    <Compile Include="Assets\UI\Main Menu Crew\Scripts\CrewFloater.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
