@@ -65,17 +65,4 @@ public class SettingsUI : MonoBehaviour
         gameObject.SetActive(false);
         animator.ResetTrigger("close");//트리거 종료함수
     }
-
-    /*public void Open()
-    {
-        StartCoroutine(OpenAfterDelay());
-    }
-
-    private IEnumerator OpenAfterDelay()
-    {
-        animator.SetTrigger("Open");
-        yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(true);
-        animator.ResetTrigger("Open");
-    }*/
 }
