@@ -25,4 +25,5 @@
     2022-09-01
     1. Online UI 구현
     - 각 오브젝트들을 정렬할 때 Horizontal Layout Group, Content Size Fitter 컴포넌트를 추가해 구성해주면 정렬이 깔끔히 된다.
+    하다가 응답없어서 껏다가 키니까 Hierarchy창 다 초기화됨, 시발
   </details>
