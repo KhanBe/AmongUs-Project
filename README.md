@@ -21,4 +21,8 @@
     2. Shader 그래프 구현
     - 셰이더 그래프에서 _MainTex라는 이름 사용시 Renderer 계열 컴포넌트에서 사용하는 텍스처들을 자동으로 가져와준다.
     - 오류 : 이름을 _MainTex라고 해도 오류가 났는데, 셰이더그래프에서 이름이랑 Reference도 똑같이 바꿔줘야 한다.
+    
+    2022-09-01
+    1. Online UI 구현
+    - 각 오브젝트들을 정렬할 때 Horizontal Layout Group, Content Size Fitter 컴포넌트를 추가해 구성해주면 정렬이 깔끔히 된다.
   </details>
