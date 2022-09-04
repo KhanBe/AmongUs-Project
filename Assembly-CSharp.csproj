@@ -57,9 +57,10 @@
     <Compile Include="Assets\UI\Scripts\SettingsUI.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
     <Compile Include="Assets\Scripts\PlayerColor.cs" />
+    <Compile Include="Assets\UI\Online UI\Scripts\CreateRoomUI.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\FloatingCrew.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\CrewFloater.cs" />
-    <Compile Include="Assets\UI\Online UI\Scripts\CreateRoomUI.cs" />
+    <Compile Include="Assets\UI\Online UI\Scripts\OnlineUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

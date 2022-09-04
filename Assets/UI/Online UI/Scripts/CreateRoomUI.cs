@@ -29,11 +29,74 @@ public class CreateRoomUI : MonoBehaviour
         UpdateCrewImages();
     }
 
+    public void UpdateImposterCount(int count)
+    {
+        roomData.imposterCount = count;
+
+        //클릭한 버튼만 알파값 넣어주는 for문
+        for (int i = 0; i < imposterCountButtons.Count; i++)
+        {
+            //인스펙터에 imposterCountButtons리스트값을 1,2,3으로 넣음
+            if (i == count - 1)
+                imposterCountButtons[i].image.color = new Color(1f, 1f, 1f, 1f);
+            else
+                imposterCountButtons[i].image.color = new Color(1f, 1f, 1f, 0f);
+        }
+
+        //게임 룰 ) 
+        // 임포1이면 최대인원 4이상, 임포2이면 7이상, 임포3이면 9이상 제약사항
+        int limitMaxPlayer = count == 1 ? 4 : count == 2 ? 7 : 9;
+
+        if (roomData.maxPlayerCount < limitMaxPlayer)
+            UpdateMaxPlayerCount(limitMaxPlayer);
+        else
+            UpdateMaxPlayerCount(roomData.maxPlayerCount);
+
+        //버튼 비활성화
+        for (int i = 0; i < maxPlayerCountButtons.Count; i++)
+        {
+            var text = maxPlayerCountButtons[i].GetComponentInChildren<Text>();
+            if (i < limitMaxPlayer - 4)//인덱스값이라 -4
+            {
+                maxPlayerCountButtons[i].interactable = false;
+                text.color = Color.gray;
+            }
+            else
+            {
+                maxPlayerCountButtons[i].interactable = true;
+                text.color = Color.white;
+            }
+        }
+    }
+
+    //최대 인원 수 변경 함수
+    public void UpdateMaxPlayerCount(int count)
+    {
+        roomData.maxPlayerCount = count;
+
+        //클릭한 버튼만 알파값 넣어주는 for문
+        for (int i = 0; i < maxPlayerCountButtons.Count; i++)
+        {
+            //인스펙터에 maxPlayerCountButtons리스트값을 4,5,6,7,8,9,10으로 넣음
+            if (i == count - 4)
+                maxPlayerCountButtons[i].image.color = new Color(1f, 1f, 1f, 1f);
+            else
+                maxPlayerCountButtons[i].image.color = new Color(1f, 1f, 1f, 0f);
+        }
+
+        UpdateCrewImages();
+    }
+
     //맵 배너의 크루원 이미지 업데이트함수
     private void UpdateCrewImages()
     {
-        int imposterCount = roomData.imposterCount;
         int i = 0;
+
+        for (i = 0; i < crewImgs.Count; i++)//크루원 기본색상 초기화
+            crewImgs[i].material.SetColor("_PlayerColor", Color.white);
+
+        int imposterCount = roomData.imposterCount;
+        i = 0;
         while (imposterCount != 0)
         {
             if (i >= roomData.maxPlayerCount) i = 0;
