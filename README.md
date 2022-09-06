@@ -37,5 +37,16 @@
     - GetComponentInChildren : 자식 오브젝트의 컴포넌트를 가져온다.
     
     3. Online & Create Room UI 연결
- 
+    
+    2022-09-06
+    Mirror & NetWork Settings
+    1. Network Room Manager : ( Offline Scene > Game Room Scene > Gameplay Scene ) 처럼 3단 구조로 씬을 관리하면서 네트워크 통신에 도움을 주는 클래스이다.
+    - Offline : 게임 네트워크에 접속하지 않은 씬
+    - Room Player Prefab : 게임 대기실에 입장한 플레이어의 오브젝트
+    ![Scene 구조](https://user-images.githubusercontent.com/61501112/188642700-2486399a-f4ae-4536-aaf0-99e9c6a58ea3.JPG)
+    - Room Manager가 Room Player 프리팹을 인스턴스화 해서 플레이어에게 할당해주고 이 오브젝트를 통해 통신하게 되는 구조이다.
+    ![Scene 구조1](https://user-images.githubusercontent.com/61501112/188642719-13678821-1355-48e0-a7e2-e12c472e8f3c.JPG)
+    - Room Player Prefab : 게임 시작 전 게임대기실에서 플레이어가 서버와 상호작용을하기 위함.
+    - Player Prefab : 게임 시작 후 Gameplay Scene에서 서버와 상호작용을 한다.
+
   </details>
