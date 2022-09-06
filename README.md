@@ -7,6 +7,7 @@
 ### 2022-08-26
 1. UI setting
 - 해상도 설정 : Canvas Scaler > Scale With Screen Size 설정후 해상도에 맞게 설정
+ ---
 
 ### 2022-08-29
 1. Quit, Online button 구현
