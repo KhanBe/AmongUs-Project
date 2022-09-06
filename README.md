@@ -1,20 +1,22 @@
 # AmongUs-Project
  make Among-Us
 
-
-    2022-08-26
-    1. UI setting
-    - 해상도 설정 : Canvas Scaler > Scale With Screen Size 설정후 해상도에 맞게 설정
- 
-    2022-08-29
-    1. Quit, Online button 구현
-
-    2022-08-31
-    MainMenu 화면에 별, 캐릭터가 자유롭게 움직이도록 구현
+<details>
+  <summary>일지</summary>
     
-    1. Particle 시스템 구현
-    - Prewarm : 게임이 시작되는 순간에 처음 생성되는 위치부터 파티클을 생성하지 않고 미리 계산하여 파티클을 자연스럽게 배치해주는 역할이다.
-    - Emission > Rate over Time : 파티클의 개수 수정 가능.
+ 2022-08-26
+1. UI setting
+- 해상도 설정 : Canvas Scaler > Scale With Screen Size 설정후 해상도에 맞게 설정
+
+ 2022-08-29
+1. Quit, Online button 구현
+
+2022-08-31
+MainMenu 화면에 별, 캐릭터가 자유롭게 움직이도록 구현
+    
+1. Particle 시스템 구현
+- Prewarm : 게임이 시작되는 순간에 처음 생성되는 위치부터 파티클을 생성하지 않고 미리 계산하여 파티클을 자연스럽게 배치해주는 역할이다.
+- Emission > Rate over Time : 파티클의 개수 수정 가능.
     
     2. Shader 그래프 구현
     - 셰이더 그래프에서 _MainTex라는 이름 사용시 Renderer 계열 컴포넌트에서 사용하는 텍스처들을 자동으로 가져와준다.
@@ -45,4 +47,6 @@
     ![Scene 구조1](https://user-images.githubusercontent.com/61501112/188642719-13678821-1355-48e0-a7e2-e12c472e8f3c.JPG)
     - Room Player Prefab : 게임 시작 전 게임대기실에서 플레이어가 서버와 상호작용을하기 위함.
     - Player Prefab : 게임 시작 후 Gameplay Scene에서 서버와 상호작용을 한다.
+  </details>
+    
 
