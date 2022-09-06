@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using Mirror;
 
 public class CreateRoomUI : MonoBehaviour
 {
@@ -115,6 +116,16 @@ public class CreateRoomUI : MonoBehaviour
             if (i < roomData.maxPlayerCount) crewImgs[i].gameObject.SetActive(true);
             else crewImgs[i].gameObject.SetActive(false);
         }
+    }
+
+    public void CreateRoom()
+    {
+        //씬에 있는 네트워크 매니저를 가져온다.
+        var manager = AmongUsRoomManager.singleton;
+
+        // StartHost : 서버를 여는 동시에 클라이언트로써 게임에 참가하게 한다
+        manager.StartHost();
+        //기본적으로 열기 전에 Room Manager에 방을 설정하고 세팅한다.
     }
 }
 
