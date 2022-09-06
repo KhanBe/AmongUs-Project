@@ -2,9 +2,6 @@
  make Among-Us
 
 
-<details>
-  <summary>일지</summary>
-    
     2022-08-26
     1. UI setting
     - 해상도 설정 : Canvas Scaler > Scale With Screen Size 설정후 해상도에 맞게 설정
@@ -49,4 +46,3 @@
     - Room Player Prefab : 게임 시작 전 게임대기실에서 플레이어가 서버와 상호작용을하기 위함.
     - Player Prefab : 게임 시작 후 Gameplay Scene에서 서버와 상호작용을 한다.
 
-  </details>
