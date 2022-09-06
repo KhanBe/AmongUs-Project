@@ -4,14 +4,14 @@
 <details>
   <summary>일지</summary>
     
- 2022-08-26
+### 2022-08-26
 1. UI setting
 - 해상도 설정 : Canvas Scaler > Scale With Screen Size 설정후 해상도에 맞게 설정
 
- 2022-08-29
+### 2022-08-29
 1. Quit, Online button 구현
 
-2022-08-31
+### 2022-08-31
 **MainMenu 화면에 별, 캐릭터가 자유롭게 움직이도록 구현**
     
 1. Particle 시스템 구현
