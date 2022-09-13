@@ -1,10 +1,19 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AmongUsGamePlayer
+    - AmongUsRoomManager
+    - AmongUsRoomPlayer
+    - CreateRoomUI
     - CrewFloater
     - FloatingCrew
+    - GameRoomSettinsUI
     - MainMenuUI
+    - OnlineUI
     - SettingsUI
+    Mirror.dll:
+    - Mirror.NetworkIdentity
+    - kcp2k.KcpTransport
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -74,6 +83,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
     - UnityEngine.UI.ScrollRect
@@ -106,15 +116,59 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 20
       Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 74
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
     - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1598}
+    - Class: 114
+      Script: {instanceID: 1600}
+    - Class: 114
+      Script: {instanceID: 1602}
+    - Class: 114
+      Script: {instanceID: 2768}
+    - Class: 114
+      Script: {instanceID: 3282}
+    - Class: 114
+      Script: {instanceID: 3360}
+    - Class: 114
+      Script: {instanceID: 5416}
+    - Class: 114
+      Script: {instanceID: 6208}
+    - Class: 114
+      Script: {instanceID: 6724}
+    - Class: 114
+      Script: {instanceID: 8142}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/Main Menu.unity:
     - Class: 1
@@ -133,7 +187,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 58
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
@@ -152,6 +210,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1760}
     - Class: 114
+      Script: {instanceID: 1814}
+    - Class: 114
       Script: {instanceID: 2416}
     - Class: 114
       Script: {instanceID: 2424}
@@ -161,6 +221,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2526}
     - Class: 114
       Script: {instanceID: 2768}
+    - Class: 114
+      Script: {instanceID: 2848}
+    - Class: 114
+      Script: {instanceID: 3030}
+    - Class: 114
+      Script: {instanceID: 3192}
     - Class: 114
       Script: {instanceID: 3282}
     - Class: 114
@@ -180,7 +246,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4266}
     - Class: 114
+      Script: {instanceID: 4558}
+    - Class: 114
       Script: {instanceID: 4600}
+    - Class: 114
+      Script: {instanceID: 4688}
+    - Class: 114
+      Script: {instanceID: 5224}
+    - Class: 114
+      Script: {instanceID: 5392}
     - Class: 114
       Script: {instanceID: 5416}
     - Class: 114
@@ -230,9 +304,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7854}
     - Class: 114
-      Script: {instanceID: 8206}
+      Script: {instanceID: 8208}
     - Class: 114
-      Script: {instanceID: 8466}
+      Script: {instanceID: 8468}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1668,6 +1742,12 @@ ScriptsOnlyBuild:
     className: PhysicsCollision
   - hash:
       serializedVersion: 2
+      Hash: 1a5d605c5c9eb5e92ad1e56c3ce9d2cd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameRoomSettinsUI
+  - hash:
+      serializedVersion: 2
       Hash: 7b6113efb956a45fe463259b12a0687f
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Chat
@@ -1768,12 +1848,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
-  - hash:
-      serializedVersion: 2
-      Hash: 1a5d605c5c9eb5e92ad1e56c3ce9d2cd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameRoomSettinsUI
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

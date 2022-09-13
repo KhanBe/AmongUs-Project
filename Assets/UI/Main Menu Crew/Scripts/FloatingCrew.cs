@@ -33,7 +33,7 @@ public class FloatingCrew : MonoBehaviour
         spriteRenderer.sortingOrder = (int)Mathf.Lerp(1, 32767, size);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position += direction * floatingSpeed * Time.deltaTime;
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, 0f, rotationSpeed));
