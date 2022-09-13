@@ -53,17 +53,18 @@
     <UnityVersion>2020.3.30f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AmongUsRoomManager.cs" />
     <Compile Include="Assets\UI\Scripts\MainMenuUI.cs" />
     <Compile Include="Assets\UI\Scripts\SettingsUI.cs" />
     <Compile Include="Assets\UI\Online UI\Scripts\OnlineUI.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
+    <Compile Include="Assets\Scripts\AmongUsRoomPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerColor.cs" />
+    <Compile Include="Assets\Scripts\AmongUsGamePlayer.cs" />
     <Compile Include="Assets\UI\Online UI\Scripts\CreateRoomUI.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\FloatingCrew.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\CrewFloater.cs" />
-    <Compile Include="Assets\Scripts\AmongUsRoomManager.cs" />
-    <Compile Include="Assets\Scripts\AmongUsRoomPlayer.cs" />
-    <Compile Include="Assets\Scripts\AmongUsGamePlayer.cs" />
+    <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
@@ -306,17 +307,17 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.30f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.CecilX">
-      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.CecilX.Rocks">
       <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.CecilX.Mdb">
-      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.CecilX.Pdb">
       <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CecilX">
+      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CecilX.Mdb">
+      <HintPath>Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.30f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -765,11 +766,11 @@
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
@@ -791,29 +792,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Mirror.csproj">
+      <Project>{BEE0C1FC-73BC-DD24-9859-67B7485AF6F7}</Project>
+      <Name>Mirror</Name>
+    </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
       <Project>{64C1F697-4E94-AA83-3D96-F95327CCF42D}</Project>
       <Name>kcp2k</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Editor.csproj">
-      <Project>{C5F73606-BF5D-5C34-DB92-C2F767FE40EA}</Project>
-      <Name>Mirror.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="where-allocations.csproj">
-      <Project>{D791E527-8035-D0F2-14F5-393ECCFE8F08}</Project>
-      <Name>where-allocations</Name>
-    </ProjectReference>
-    <ProjectReference Include="Telepathy.csproj">
-      <Project>{EB0FFD7C-8928-4092-6691-91438DCAC496}</Project>
-      <Name>Telepathy</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Components.csproj">
-      <Project>{CF8441D9-B14C-B57F-0CA5-72F7579BCE7B}</Project>
-      <Name>Mirror.Components</Name>
-    </ProjectReference>
     <ProjectReference Include="Mirror.Examples.csproj">
       <Project>{45EC4C98-C532-4834-4CDA-659A0C8D6473}</Project>
       <Name>Mirror.Examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Editor.csproj">
+      <Project>{C5F73606-BF5D-5C34-DB92-C2F767FE40EA}</Project>
+      <Name>Mirror.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
       <Project>{AFEEF35F-04CF-3782-FC19-289BC3F6660E}</Project>
@@ -823,13 +816,21 @@
       <Project>{8B555E20-8CCC-5EE4-D614-62C8661982F8}</Project>
       <Name>Mirror.Authenticators</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.csproj">
-      <Project>{BEE0C1FC-73BC-DD24-9859-67B7485AF6F7}</Project>
-      <Name>Mirror</Name>
+    <ProjectReference Include="Telepathy.csproj">
+      <Project>{EB0FFD7C-8928-4092-6691-91438DCAC496}</Project>
+      <Name>Telepathy</Name>
+    </ProjectReference>
+    <ProjectReference Include="where-allocations.csproj">
+      <Project>{D791E527-8035-D0F2-14F5-393ECCFE8F08}</Project>
+      <Name>where-allocations</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{C2AC87A7-5BB9-3525-997A-C8D9435E6725}</Project>
       <Name>SimpleWebTransport</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Components.csproj">
+      <Project>{CF8441D9-B14C-B57F-0CA5-72F7579BCE7B}</Project>
+      <Name>Mirror.Components</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
