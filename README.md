@@ -60,6 +60,14 @@
 2. 게임 룸 구현
 - 썼던 애니메이션을 재활용 하려면 게임 오브젝트 이름이 같아야 한다.
 - 호스트가 방을 나갔을 때 호스트를 다른 클라이언트에 넘겨줘야하는 기능 (호스트 마이그레이션)을 구현해야한다.
+ ---
+ 
+### 2022-09-14
+ 1. Hierarchy창 다 초기화되는 이유를 찾음. Project만 저장하는게 아니고 Scene도 따로 저장해야 된다.
+ 2. Editor에서 재생시킨 object rotation보다 빌드 된 게임에서 object rotation이 더 빠르게 도는 버그를 해결함.
+ - Update() method 내에서 회전력을 주는게 아니고 FixedUpdate()에서 회전력을 줘야 한다.
+ - 이유 : Update()는 매 프레임마다 호출하게 되고, FIxedUpdate()는 Fixed Timestep에 설정된 값에 따라 일정한 간격으로 호출하게 된다.   
+ 그래서 각 CPU에 따라 초당 처리되는 프레임이 많거나 적을 수 있기 때문이다.
+ - https://forum.unity.com/threads/rotation-speed-different-in-standalone-build.883579/
   </details>
-    
 
