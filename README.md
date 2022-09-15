@@ -69,5 +69,11 @@
  - 이유 : Update()는 매 프레임마다 호출하게 되고, FIxedUpdate()는 Fixed Timestep에 설정된 값에 따라 일정한 간격으로 호출하게 된다.   
  그래서 각 CPU에 따라 초당 처리되는 프레임이 많거나 적을 수 있기 때문이다.
  - https://forum.unity.com/threads/rotation-speed-different-in-standalone-build.883579/
+ 
+### 2022-09-15
+1. 게임 대기실 캐릭터 조작 및 동기화
+- network transform component 추가 : transform 동기화 기능 컴포넌트
+- Client Authority 체크 : 각 클라이언트에게 동기화 권한 부여
+- Sync Interval : 동기화 반응속도 (값이 작아지면 초당 동기화 회수가 많아져 반응속도는 빨라지지만 그만큼 데이터 소모량이 커진다)
   </details>
 
