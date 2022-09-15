@@ -6,6 +6,7 @@
  
 **1. UI setting**
 - 해상도 설정 : Canvas Scaler > Scale With Screen Size 설정후 해상도에 맞게 설정
+ 
  ---
  
 </details>
@@ -14,6 +15,7 @@
   <summary>2022-08-29</summary>
  
   **1. Quit, Online button 구현**
+ 
  ---
  
 </details>
@@ -30,6 +32,7 @@
  **2. Shader 그래프 구현**
  - 셰이더 그래프에서 _MainTex라는 이름 사용시 Renderer 계열 컴포넌트에서 사용하는 텍스처들을 자동으로 가져와준다.
  - 오류 : 이름을 _MainTex라고 해도 오류가 났는데, 셰이더그래프에서 이름이랑 Reference도 똑같이 바꿔줘야 한다.
+ 
  ---
  
 </details>
@@ -40,6 +43,7 @@
  **1. Online UI 구현**
  - 각 오브젝트들을 정렬할 때 Horizontal Layout Group, Content Size Fitter 컴포넌트를 추가해 구성해주면 정렬이 깔끔히 된다.
  - 하다가 응답없어서 껏다가 키니까 Hierarchy창 다 초기화됨, 저장 프로젝트 파일이 없음...  
+ 
  ---
  
 </details>
@@ -55,6 +59,7 @@
  - GetComponentInChildren : 자식 오브젝트의 컴포넌트를 가져온다.
     
  **3. Online & Create Room UI 연결**
+ 
  ---
  
 </details>
@@ -71,6 +76,7 @@
  ![Scene 구조1](https://user-images.githubusercontent.com/61501112/188642719-13678821-1355-48e0-a7e2-e12c472e8f3c.JPG)
  - Room Player Prefab : 게임 시작 전 게임대기실에서 플레이어가 서버와 상호작용을하기 위함.
  - Player Prefab : 게임 시작 후 Gameplay Scene에서 서버와 상호작용을 한다.
+ 
  ---
  
 </details>
@@ -82,6 +88,7 @@
  2. 게임 룸 구현
  - 썼던 애니메이션을 재활용 하려면 게임 오브젝트 이름이 같아야 한다.
  - 호스트가 방을 나갔을 때 호스트를 다른 클라이언트에 넘겨줘야하는 기능 (호스트 마이그레이션)을 구현해야한다.
+ 
  ---
  
 </details>
@@ -96,6 +103,7 @@
  - 이유 : Update()는 매 프레임마다 호출하게 되고, FIxedUpdate()는 Fixed Timestep에 설정된 값에 따라 일정한 간격으로 호출하게 된다.   
  그래서 각 CPU에 따라 초당 처리되는 프레임이 많거나 적을 수 있기 때문이다.
  - https://forum.unity.com/threads/rotation-speed-different-in-standalone-build.883579/
+ 
  ---
  
 </details>
@@ -114,6 +122,7 @@
  //Vector3 값은 (5f, 5f, 3f)로 바뀌게 된다.
  dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f), 1f);
  ```
+ 
  ---
  
  </details>
