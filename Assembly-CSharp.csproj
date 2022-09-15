@@ -65,6 +65,7 @@
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\FloatingCrew.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\CrewFloater.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
+    <Compile Include="Assets\Character\Scripts\CharacterMover.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

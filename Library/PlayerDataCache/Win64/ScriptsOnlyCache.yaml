@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - AmongUsGamePlayer
     - AmongUsRoomManager
     - AmongUsRoomPlayer
+    - CharacterMover
     - CreateRoomUI
     - CrewFloater
     - FloatingCrew
@@ -11,6 +12,10 @@ ScriptsOnlyBuild:
     - MainMenuUI
     - OnlineUI
     - SettingsUI
+    Mirror.Components.dll:
+    - Mirror.NetworkTransform
+    Mirror.Editor.dll:
+    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.NetworkIdentity
     - kcp2k.KcpTransport
@@ -304,9 +309,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7854}
     - Class: 114
+      Script: {instanceID: 8068}
+    - Class: 114
       Script: {instanceID: 8208}
     - Class: 114
       Script: {instanceID: 8468}
+    - Class: 114
+      Script: {instanceID: 39194}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1848,6 +1857,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: 4be201806df3b948a56999069445d319
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CharacterMover
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
