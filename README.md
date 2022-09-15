@@ -40,21 +40,24 @@
  
 </details>
  
-  <details>
-  <summary>2022-09-05</summary>
+<details>
+ <summary>2022-09-05</summary>
+ 
  1. Online UI 구현
-- 닉네임이 비어있을 때 (흔들림) 애니메이션 구현
+ - 닉네임이 비어있을 때 (흔들림) 애니메이션 구현
     
  2. Create Room UI 구현
-- Interactable : 버튼 기능의 활성화/비활성화 기능을 가지며, SetActive 처럼 쓰인다.
-- GetComponentInChildren : 자식 오브젝트의 컴포넌트를 가져온다.
+ - Interactable : 버튼 기능의 활성화/비활성화 기능을 가지며, SetActive 처럼 쓰인다.
+ - GetComponentInChildren : 자식 오브젝트의 컴포넌트를 가져온다.
     
  3. Online & Create Room UI 연결
- </details>
  
-  <details>
-  <summary>2022-09-06</summary>
- **Mirror & NetWork Settings**
+</details>
+ 
+<details>
+ <summary>2022-09-06</summary>
+ 
+**Mirror & NetWork Settings**
 1. Network Room Manager : ( Offline Scene > Game Room Scene > Gameplay Scene ) 처럼 3단 구조로 씬을 관리하면서 네트워크 통신에 도움을 주는 클래스이다.
 - Offline : 게임 네트워크에 접속하지 않은 씬
 - Room Player Prefab : 게임 대기실에 입장한 플레이어의 오브젝트
@@ -63,38 +66,42 @@
 ![Scene 구조1](https://user-images.githubusercontent.com/61501112/188642719-13678821-1355-48e0-a7e2-e12c472e8f3c.JPG)
 - Room Player Prefab : 게임 시작 전 게임대기실에서 플레이어가 서버와 상호작용을하기 위함.
 - Player Prefab : 게임 시작 후 Gameplay Scene에서 서버와 상호작용을 한다.
- </details>
  
-  <details>
-  <summary>2022-09-13</summary>
+</details>
+ 
+<details>
+ <summary>2022-09-13</summary>
+ 
  1. 다른 플레이어가 접속하는 기능 구현
-2. 게임 룸 구현
-- 썼던 애니메이션을 재활용 하려면 게임 오브젝트 이름이 같아야 한다.
-- 호스트가 방을 나갔을 때 호스트를 다른 클라이언트에 넘겨줘야하는 기능 (호스트 마이그레이션)을 구현해야한다.
- </details>
+ 2. 게임 룸 구현
+ - 썼던 애니메이션을 재활용 하려면 게임 오브젝트 이름이 같아야 한다.
+ - 호스트가 방을 나갔을 때 호스트를 다른 클라이언트에 넘겨줘야하는 기능 (호스트 마이그레이션)을 구현해야한다.
+
+</details>
  
-  <details>
-  <summary>2022-09-14</summary>
-  1. Hierarchy창 다 초기화되는 이유를 찾음. Project만 저장하는게 아니고 Scene도 따로 저장해야 된다.
+<details>
+ <summary>2022-09-14</summary>
+ 1. Hierarchy창 다 초기화되는 이유를 찾음. Project만 저장하는게 아니고 Scene도 따로 저장해야 된다.
  2. Editor에서 재생시킨 object rotation보다 빌드 된 게임에서 object rotation이 더 빠르게 도는 버그를 해결함.
  - Update() method 내에서 회전력을 주는게 아니고 FixedUpdate()에서 회전력을 줘야 한다.
  - 이유 : Update()는 매 프레임마다 호출하게 되고, FIxedUpdate()는 Fixed Timestep에 설정된 값에 따라 일정한 간격으로 호출하게 된다.   
  그래서 각 CPU에 따라 초당 처리되는 프레임이 많거나 적을 수 있기 때문이다.
  - https://forum.unity.com/threads/rotation-speed-different-in-standalone-build.883579/
- </details>
+</details>
  
-  <details>
-  <summary>2022-09-15</summary>
+<details>
+ <summary>2022-09-15</summary>
  1. 게임 대기실 캐릭터 조작 및 동기화
-- network transform component 추가 : transform 동기화 기능 컴포넌트
-- Client Authority 체크 : 각 클라이언트에게 동기화 권한 부여
-- Sync Interval : 동기화 반응속도 (값이 작아지면 초당 동기화 회수가 많아져 반응속도는 빨라지지만 그만큼 데이터 소모량이 커진다)
+ - network transform component 추가 : transform 동기화 기능 컴포넌트
+ - Client Authority 체크 : 각 클라이언트에게 동기화 권한 부여
+ - Sync Interval : 동기화 반응속도 (값이 작아지면 초당 동기화 회수가 많아져 반응속도는 빨라지지만 그만큼 데이터 소모량이 커진다)
  
-```
+ ```
  //Vector3.ClampMagnitude(Vector3 vector, float maxLength);
  //만약 Vector3 값이 (30f, 10f, 3f)이고 maxLength값이 5이면 ClampMagnitude로 인해
  //Vector3 값은 (5f, 5f, 3f)로 바뀌게 된다.
  dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f), 1f);
-```
+ ```
+ 
  </details>
  
