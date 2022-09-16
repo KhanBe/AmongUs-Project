@@ -112,7 +112,7 @@
  <summary>2022-09-15</summary>
  
  **1. 게임 대기실 캐릭터 조작 및 동기화**
- - network transform component 추가 : transform 동기화 기능 컴포넌트
+ - 캐릭터에 network transform component 추가 : transform 동기화 기능 컴포넌트
  - Client Authority 체크 : 각 클라이언트에게 동기화 권한 부여
  - Sync Interval : 동기화 반응속도 (값이 작아지면 초당 동기화 회수가 많아져 반응속도는 빨라지지만 그만큼 데이터 소모량이 커진다)
  
@@ -127,3 +127,38 @@
  
  </details>
  
+ <details>
+ <summary>2022-09-16</summary>
+ 
+ **1. 캐릭터 애니메이션**
+ - 캐릭터에 network animator component :  animtor 프로퍼티에 Animator 컴포넌트 할당
+ - network animator component : 네트워크를 통해 animation 동기화 역할 component
+ - 캐릭터 Flip이 안됐던 이유 : Sync Scale 체크해야 됨, LocalScale로 Flip을 했기 때문에
+ 
+ **2. 캐릭터 스폰**
+ ```
+ //인스턴스화
+ Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+ ```
+ 
+ **3. 다른 클래스 함수 가져오는 방법**
+ ```
+ //SpawnPositions 클래스의 GetSpawnPosition함수의 반환 Vector3 포지션 값을 가져온다
+ Vector3 spawnPos = FindObjectOfType<SpawnPositions>().GetSpawnPosition();
+ ```
+ 
+ **4. 애니메이션 add Event 오류**
+ **animation event has no function name specified**   
+ - 애니메이션에 추가된 event가 설정되어 있지 않아서 생가는 오류 메세지
+ 
+ **5. 캐릭터 충돌**
+ - 각 오브젝트마다 Collider추가
+ - 캐릭터끼리 충돌 안하게 : Player Layer 추가 > Project Settings 에서 Physics 2D Layer Collision Matrix 에서 플레이어끼리 체크 해제 후 원하는 오브젝트를 Player Layer로 설정
+ 
+ **6. 오브젝트 정렬**
+ - Lerp 에 대해 공부하기 (선형보간)
+ - Sorting Order에 대해 공부하기
+ 
+ ---
+ 
+ </details>
