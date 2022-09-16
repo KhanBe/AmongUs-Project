@@ -6,14 +6,21 @@ using Mirror;
 //NetworkBehaviour 상속
 public class CharacterMover : NetworkBehaviour
 {
+    //private SpriteRenderer spriteRenderer;
+
+    private Animator animator;
+
     public bool isMoveable;
-    
+
     //SyncVar 어트리뷰트를 붙여 네트워크로 동기화 가능하게
     [SyncVar]
     public float speed = 2f;
 
     void Start()
     {
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
         if (hasAuthority)
         {
             Camera cam = Camera.main;
@@ -32,8 +39,9 @@ public class CharacterMover : NetworkBehaviour
         //클라이언트가 오브젝트에 대해 권한이 있으면
         if (hasAuthority && isMoveable)
         {
-            Vector3 dir = new Vector3(0f, 0f);
-            
+            Vector3 dir = new Vector3(0f, 0f, 0f);
+            bool isMove = false;
+
             if (PlayerSettings.controlType == EControlType.KeyboardMouse)
             {
                 //Vector3.ClampMagnitude(Vector3 vector, float maxLength);
@@ -48,9 +56,18 @@ public class CharacterMover : NetworkBehaviour
                     dir = (Input.mousePosition - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)).normalized;
                 }
             }
+            //Flip
             if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
             else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+            //이걸로는 동기화 안됨
+            //if (dir.x < 0f) spriteRenderer.flipX = true;
+            //else if (dir.x > 0f) spriteRenderer.flipX = false;
+
             transform.position += dir * speed * Time.deltaTime;
+
+            // dir 이동거리가 0이 아니면 true (magnitude : 크기)
+            isMove = dir.magnitude != 0f;
+            animator.SetBool("isMove", isMove);
         }
     }
 }

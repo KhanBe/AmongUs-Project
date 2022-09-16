@@ -12,8 +12,13 @@ GameObject:
   - component: {fileID: 8862928474227949832}
   - component: {fileID: 1289487182168541428}
   - component: {fileID: 7366208287155474494}
-  - component: {fileID: 2957729705982724209}
-  m_Layer: 0
+  - component: {fileID: 6178312948483829612}
+  - component: {fileID: 5603011890091003345}
+  - component: {fileID: 254335945620824298}
+  - component: {fileID: 2503308094532771544}
+  - component: {fileID: 3942606812314808483}
+  - component: {fileID: 3811684860836215921}
+  m_Layer: 6
   m_Name: Lobby Player Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +125,7 @@ MonoBehaviour:
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
   interpolateScale: 0
@@ -136,7 +141,7 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
---- !u!114 &2957729705982724209
+--- !u!114 &6178312948483829612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,10 +150,105 @@ MonoBehaviour:
   m_GameObject: {fileID: 8862928474227949839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdafb3bd9492964892461cf3b3a0a3d, type: 3}
+  m_Script: {fileID: 11500000, guid: c5baa221fff22154f8854b951af0911d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  isMoveable: 1
+  isMoveable: 0
   speed: 2
+--- !u!95 &5603011890091003345
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862928474227949839}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc5e4680be0de1e45bf1c7743c8da09a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &254335945620824298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862928474227949839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  animator: {fileID: 5603011890091003345}
+--- !u!61 &2503308094532771544
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862928474227949839}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.046009466, y: -0.355807}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.78, y: 1.03}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.47940454, y: 0.17115533}
+  m_EdgeRadius: 0
+--- !u!50 &3942606812314808483
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862928474227949839}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &3811684860836215921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862928474227949839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2d82f41087cb343a3aa5a6ab4267d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingType: 1
