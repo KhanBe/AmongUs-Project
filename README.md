@@ -162,3 +162,12 @@
  ---
  
  </details>
+ 
+ <details>
+ <summary>2022-09-18</summary>
+ 
+ **1. 선형보간(Lerp)을 통한 SortingOrder(Order in Layer)를 완벽히 이해함**
+ - SpriteSorter, SortingSprite Scripts에 주석
+ ---
+ 
+</details>
