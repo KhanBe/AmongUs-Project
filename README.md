@@ -171,3 +171,20 @@
  ---
  
 </details>
+
+ </details>
+ 
+ <details>
+ <summary>2022-09-20</summary>
+ 
+ **1. 캐릭터 입장시 자동 색상 구현**
+ - Command Attribute : Mirror API 제공, 클라이언트에서 함수 실행 시 서버에서 함수 동작, **함수이름 앞 Cmd를 접두사로 써야한다.**
+ - SyncVar hook 기능 :
+ - singleton :
+ - 색상 선택 기능 구현 다시학습
+ 
+ **2. 캐릭터 색상 선택 UI 구현**
+ 
+ ---
+ 
+</details>
