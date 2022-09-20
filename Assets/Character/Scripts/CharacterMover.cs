@@ -6,7 +6,7 @@ using Mirror;
 //NetworkBehaviour 상속
 public class CharacterMover : NetworkBehaviour
 {
-    //private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
     private Animator animator;
 
@@ -16,9 +16,24 @@ public class CharacterMover : NetworkBehaviour
     [SyncVar]
     public float speed = 2f;
 
+    //hook SyncVar로 동기화된 변수가 서버에서 변경되면 hook으로 등록한 함수를 클라이언트에서 호출하는 기능
+    [SyncVar(hook = nameof(SetPlayerColor_Hook))]
+    public EPlayerColor playerColor;
+
+    public void SetPlayerColor_Hook(EPlayerColor oldColor, EPlayerColor newColor)
+    {
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+        spriteRenderer.material.SetColor("_PlayerColor", PlayerColor.GetColor(newColor));
+    }
+
     void Start()
     {
-        //spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.material.SetColor("_PlayerColor", PlayerColor.GetColor(playerColor));//초기값
+
         animator = GetComponent<Animator>();
 
         if (hasAuthority)
