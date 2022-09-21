@@ -184,6 +184,31 @@
  - 색상 선택 기능 구현 다시학습
  
  **2. 캐릭터 색상 선택 UI 구현**
+ - get/set Property : **정보은닉** 목적으로 private 변수를 외부에서 불러오기 위해 쓰인다.
+ - 예시 :
+ ```
+ class Person
+ {
+  private string age; // field
+  public string Age   // property
+   {
+    get { return age; }
+    set { age = value; }
+   }
+ }
+```
+
+ ---
+ 
+</details>
+
+ <details>
+ <summary>2022-09-21</summary>
+ 
+ **1. 거리에 따른 상호작용 가능한 오브젝트 셰이더 구현**
+ **2. 캐릭터 색상 선택 Customize UI 구현**
+ 
+ ps. Scene만 잘 저장하고 불러오면 문제 안된다.   
  
  ---
  
