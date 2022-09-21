@@ -7,7 +7,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
 {
     private static AmongUsRoomPlayer myRoomPlayer;
 
-    //자기 자신플레이어를 반환
+    //null 값이면 자기 자신플레이어를 반환하는 Property
     public static AmongUsRoomPlayer MyRoomPlayer
     {
         get
@@ -28,6 +28,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
     [SyncVar(hook = nameof(SetPlayerColor_Hook))]
     public EPlayerColor playerColor;
 
+    //playerColor가 변경될 시 호출 Hook
     public void SetPlayerColor_Hook(EPlayerColor oldColor, EPlayerColor newColor)
     {
         LobbyUIManager.Instance.CustomizeUI.UpdateColorButton();

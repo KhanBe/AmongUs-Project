@@ -9,9 +9,9 @@ public class CustomizeUI : MonoBehaviour
     [SerializeField]
     private Image characterPreview;
 
-    [SerializeField]
+    [SerializeField]//UI색상Buttons
     private List<ColorSelectButton> colorSelectButtons;
-    // Start is called before the first frame update
+    
     void Start()
     {
         //material 인스턴스화(복제품)
@@ -37,14 +37,17 @@ public class CustomizeUI : MonoBehaviour
         }
     }
 
+    //Player상태에 따라 색상버튼 업데이트 기능 함수
     public void UpdateColorButton()
     {
         var roomSlots = (NetworkManager.singleton as AmongUsRoomManager).roomSlots;
 
+        //true로 초기값
         for (int i = 0; i < colorSelectButtons.Count; i++)
             colorSelectButtons[i].SetInteractable(true);
 
-        foreach(var player in roomSlots)
+        //서버에접속한 player의 색상들은 SetInteractable(false)
+        foreach (var player in roomSlots)
         {
             var aPlayer = player as AmongUsRoomPlayer;
             colorSelectButtons[(int)aPlayer.playerColor].SetInteractable(false);
@@ -57,12 +60,27 @@ public class CustomizeUI : MonoBehaviour
         characterPreview.material.SetColor("_PlayerColor", PlayerColor.GetColor(color));
     }
 
+    //색상 버튼을 클릭했을 경우 Event
+    //Inspector에 지정한 index
     public void OnClickColorButton(int index)
     {
+        //색상의 버튼이 상호작용 가능하면
         if (colorSelectButtons[index].isInteractable)
         {
             AmongUsRoomPlayer.MyRoomPlayer.CmdSetPlayerColor((EPlayerColor)index);
             UpdatePreviewColor((EPlayerColor)index);
         }
+    }
+
+    public void Open()
+    {
+        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.isMoveable = false;
+        gameObject.SetActive(true);
+    }
+
+    public void Close()
+    {
+        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.isMoveable = true;
+        gameObject.SetActive(false);
     }
 }

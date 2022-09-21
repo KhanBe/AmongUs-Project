@@ -9,7 +9,8 @@ public class ColorSelectButton : MonoBehaviour
     private GameObject x;
 
     public bool isInteractable = true;
-
+    
+    //SetInteractable 값이 true이면, x오브젝트 : SetActive(false)
     public void SetInteractable(bool isInteractable)
     {
         this.isInteractable = isInteractable;

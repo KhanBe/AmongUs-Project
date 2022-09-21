@@ -5,9 +5,10 @@ using Mirror;
 
 public class LobbyCharacterMover : CharacterMover
 {
-    [SyncVar]
-    public uint ownerNetId;
+    [SyncVar(hook = nameof(SetOwnerNetId_Hook))]
+    public uint ownerNetId;//unit : (0 ~ 4,294,967,295)
 
+    //ownerNetId 변경시 클라이언트에서 호출될 함수
     public void SetOwnerNetId_Hook(uint _, uint newOwnerId)
     {
         var players = FindObjectsOfType<AmongUsRoomPlayer>();
