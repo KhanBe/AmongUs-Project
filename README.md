@@ -214,3 +214,15 @@
  ---
  
 </details>
+
+</details>
+
+ <details>
+ <summary>2022-09-22</summary>
+ 
+ **1. 색상 선택 UI에서 클라이언트가 접속시 업데이트가 안되는 버그 잡기**
+ **2. 스폰 위지 Flip 버그 잡기**
+ 
+ ---
+ 
+</details>
