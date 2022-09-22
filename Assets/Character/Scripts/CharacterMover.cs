@@ -10,7 +10,24 @@ public class CharacterMover : NetworkBehaviour
 
     private Animator animator;
 
-    public bool isMoveable;
+    private bool isMoveable;
+
+    //property
+    //customize를 마우스로 클릭시 달리는 애니메이션 때문에
+    public bool IsMoveable
+    {
+        get { return isMoveable; }
+        set
+        {
+            //받아온 값 : value
+            // isMoveable에 false가 들어가면
+            if (!value)
+            {
+                animator.SetBool("isMove", false);
+            }
+            isMoveable = value;
+        }
+    }
 
     //SyncVar 어트리뷰트를 붙여 네트워크로 동기화 가능하게
     [SyncVar]

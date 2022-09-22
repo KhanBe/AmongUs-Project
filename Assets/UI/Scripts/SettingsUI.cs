@@ -14,12 +14,13 @@ public class SettingsUI : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-
     }
 
     //게임오브젝트가 활성화 될 때 호출되는 함수
     private void OnEnable()
     {
+        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.IsMoveable = false;
+
         switch (PlayerSettings.controlType)
         {
             case EControlType.Mouse:
@@ -55,6 +56,7 @@ public class SettingsUI : MonoBehaviour
     //닫히는 애니 재생후 오브젝트 비활성화
     public void Close()
     {
+        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.IsMoveable = true;
         StartCoroutine(CloseAfterDelay());
     }
 

@@ -31,7 +31,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
     //playerColor가 변경될 시 호출 Hook
     public void SetPlayerColor_Hook(EPlayerColor oldColor, EPlayerColor newColor)
     {
-        LobbyUIManager.Instance.CustomizeUI.UpdateColorButton();
+        LobbyUIManager.Instance.CustomizeUI.UpdateSelectColorButton(newColor);
     }
 
     public CharacterMover lobbyPlayerCharacter;
@@ -43,6 +43,13 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         base.Start();
         
         if (isServer) SpawnLobbyPlayerCharacter();
+    }
+
+    //방에서 나가 오브젝트 파괴 시 색상선택버튼 활성화
+    private void OnDestroy()
+    {
+        if (LobbyUIManager.Instance != null)
+            LobbyUIManager.Instance.CustomizeUI.UpdateUnselectColorButton(playerColor);
     }
 
     //Command Attribute (Mirror API 제공 : 클라이언트에서 함수 실행 시 서버에서 함수 동작)
@@ -82,12 +89,18 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         }
         playerColor = color;
 
-        //SpawnPositions 클래스의 GetSpawnPosition함수의 반환 Vector3 포지션 값을 가져온다
-        Vector3 spawnPos = FindObjectOfType<SpawnPositions>().GetSpawnPosition();
+        var spawnPositions = FindObjectOfType<SpawnPositions>();
+        int index = spawnPositions.Index;
 
+        //SpawnPositions 클래스의 GetSpawnPosition함수의 반환 Vector3 포지션 값을 가져온다
+        Vector3 spawnPos = spawnPositions.GetSpawnPosition();
+        
         //Room Manager 인스펙터의 Registered Spawnable Prefabs에 추가된 프리펩을
         //인스턴스화 한다 
         var playerChracter = Instantiate(AmongUsRoomManager.singleton.spawnPrefabs[0], spawnPos, Quaternion.identity).GetComponent<LobbyCharacterMover>();
+
+        //6번째 클라부터는 flip해서 소환
+        playerChracter.transform.localScale = index < 5 ? new Vector3(0.5f, 0.5f, 1f) : new Vector3(-0.5f, 0.5f, 1f);
 
         //클라이언트들에게 게임오브젝트가 소환됨을 알림
         //connectionToClient와 connectionToServer은 서버와 클라이언트 중 어느 곳에서 호출하느냐 차이

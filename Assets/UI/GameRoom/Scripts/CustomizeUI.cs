@@ -54,6 +54,18 @@ public class CustomizeUI : MonoBehaviour
         }
     }
 
+    //버튼 비활성화 
+    public void UpdateSelectColorButton(EPlayerColor color)
+    {
+        colorSelectButtons[(int)color].SetInteractable(false);
+    }
+
+    //버튼 활성화 
+    public void UpdateUnselectColorButton(EPlayerColor color)
+    {
+        colorSelectButtons[(int)color].SetInteractable(true);
+    }
+
     //Preview캐릭터 색을 넣어주는 함수
     public void UpdatePreviewColor(EPlayerColor color)
     {
@@ -74,13 +86,13 @@ public class CustomizeUI : MonoBehaviour
 
     public void Open()
     {
-        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.isMoveable = false;
+        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.IsMoveable = false;
         gameObject.SetActive(true);
     }
 
     public void Close()
     {
-        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.isMoveable = true;
+        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.IsMoveable = true;
         gameObject.SetActive(false);
     }
 }

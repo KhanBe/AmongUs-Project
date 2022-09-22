@@ -30,7 +30,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -833,7 +832,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: f269cd866308d5f05eed28def907ba74
+      Hash: 2a83a01fb55254bd06430305b0f1e97b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LobbyCharacterMover
@@ -1685,7 +1684,7 @@ ScriptsOnlyBuild:
     className: CanvasUI
   - hash:
       serializedVersion: 2
-      Hash: ec88a29443799a10841a3b12c53d6170
+      Hash: 3c560c162db7c5155674fb251b5df5cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CharacterMover

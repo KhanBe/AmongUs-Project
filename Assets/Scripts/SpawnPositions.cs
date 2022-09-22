@@ -9,6 +9,8 @@ public class SpawnPositions : MonoBehaviour
 
     private int index;
 
+    public int Index { get { return index; } }
+    
     //스폰될 포지션Vector3 값 반환 함수
     public Vector3 GetSpawnPosition()
     {
