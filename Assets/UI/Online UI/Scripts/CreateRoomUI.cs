@@ -120,8 +120,13 @@ public class CreateRoomUI : MonoBehaviour
 
     public void CreateRoom()
     {
-        //씬에 있는 네트워크 매니저를 가져온다.
-        var manager = AmongUsRoomManager.singleton;
+        //씬에 있는 네트워크 매니저의 singleton을 가져와 AmongUsRoomManager로 캐스팅
+        var manager = NetworkManager.singleton as AmongUsRoomManager;
+
+        manager.minPlayerCount = roomData.imposterCount == 1 ? 4 : roomData.imposterCount == 2 ? 7 : 9;
+        manager.imposterCount = roomData.imposterCount;
+        //NetworkManager에 최대인원 수 변수가 따로 있음 (maxConnections)
+        manager.maxConnections = roomData.maxPlayerCount;
 
         // StartHost : 서버를 여는 동시에 클라이언트로써 게임에 참가하게 한다
         manager.StartHost();

@@ -466,7 +466,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: f9693aa3aa8bd17c4775ad5d64f69542
+      Hash: d1e2708006f7d2993cc5aee7ab378530
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AmongUsRoomManager

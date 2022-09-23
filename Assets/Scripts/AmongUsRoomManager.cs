@@ -5,6 +5,9 @@ using Mirror;
 
 public class AmongUsRoomManager : NetworkRoomManager
 {
+    public int minPlayerCount;
+    public int imposterCount;
+
     //서버에 새로 접속한 클라이언트를 감지했을때 동작하는 함수
     public override void OnRoomServerConnect(NetworkConnectionToClient conn)
     {
