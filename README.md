@@ -227,3 +227,17 @@
  ---
  
 </details>
+
+</details>
+
+</details>
+
+ <details>
+ <summary>2022-09-24</summary>
+ 
+ **1. 게임 규칙 UI 배치**
+ - 스크롤뷰에서 목록이 많이 있으면 Viewport의 Mask 컴포넌트를 꺼서 작업하면 편리함.
+ 
+ ---
+ 
+</details>
