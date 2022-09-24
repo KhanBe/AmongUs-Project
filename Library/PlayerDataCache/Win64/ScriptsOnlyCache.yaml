@@ -11,6 +11,8 @@ ScriptsOnlyBuild:
     - CustomizeUI
     - FloatingCrew
     - GameRoomSettinsUI
+    - GameRuleItem
+    - GameRuleStore
     - LobbyCharacterMover
     - LobbyUIManager
     - MainMenuUI
@@ -30,6 +32,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -149,6 +152,8 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 1602}
+    - Class: 114
       Script: {instanceID: 1604}
     - Class: 114
       Script: {instanceID: 1606}
@@ -162,6 +167,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3290}
     - Class: 114
       Script: {instanceID: 3368}
+    - Class: 114
+      Script: {instanceID: 3478}
+    - Class: 114
+      Script: {instanceID: 4156}
+    - Class: 114
+      Script: {instanceID: 4698}
     - Class: 114
       Script: {instanceID: 4716}
     - Class: 114
@@ -181,11 +192,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6744}
     - Class: 114
+      Script: {instanceID: 6754}
+    - Class: 114
       Script: {instanceID: 7090}
+    - Class: 114
+      Script: {instanceID: 7194}
+    - Class: 114
+      Script: {instanceID: 7878}
     - Class: 114
       Script: {instanceID: 8120}
     - Class: 114
       Script: {instanceID: 8168}
+    - Class: 114
+      Script: {instanceID: 30232}
+    - Class: 114
+      Script: {instanceID: 33044}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1822,7 +1843,7 @@ ScriptsOnlyBuild:
     className: NetworkRoomPlayer
   - hash:
       serializedVersion: 2
-      Hash: 515cf30f29cd08a96b23ab4af06b9c9a
+      Hash: 5a35ab978ca629f871db292b4358fe93
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CustomizeUI
@@ -1952,6 +1973,18 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: 69cb23c11c0455402c716675db5a7f7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameRuleItem
+  - hash:
+      serializedVersion: 2
+      Hash: 517742f90e89285dd27ec86410f241e4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameRuleStore
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

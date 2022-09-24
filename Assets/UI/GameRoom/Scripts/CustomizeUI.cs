@@ -7,6 +7,15 @@ using Mirror;
 public class CustomizeUI : MonoBehaviour
 {
     [SerializeField]
+    private Button colorButton;
+    [SerializeField]
+    private GameObject colorPanel;
+    [SerializeField]
+    private Button gameRuleButton;
+    [SerializeField]
+    private GameObject gameRulePanel;
+
+    [SerializeField]
     private Image characterPreview;
 
     [SerializeField]//UI색상Buttons
@@ -18,12 +27,31 @@ public class CustomizeUI : MonoBehaviour
         var inst = Instantiate(characterPreview.material);
         characterPreview.material = inst;
     }
+    //색상 버튼 눌렀을때 호출 함수 Event
+    public void ActiveColorPanel()
+    {
+        colorButton.image.color = new Color(0f, 0f, 0f, 0.75f);
+        gameRuleButton.image.color = new Color(0f, 0f, 0f, 0.25f);
+
+        colorPanel.SetActive(true);
+        gameRulePanel.SetActive(false);
+    }
+
+    //게임 버튼 눌렀을때 호출 함수 Event
+    public void ActiveGameRulePanel()
+    {
+        colorButton.image.color = new Color(0f, 0f, 0f, 0.25f);
+        gameRuleButton.image.color = new Color(0f, 0f, 0f, 0.75f);
+
+        colorPanel.SetActive(false);
+        gameRulePanel.SetActive(true);
+    }
 
     //활성화 시 호출되는 함수
     private void OnEnable()
     {
-        UpdateColorButton();
-
+        UpdateColorButton();//초기값
+        ActiveColorPanel();//초기값
         //프리뷰는 이미 정해진 자기 색을 가지고있어야하기때문에 roomSlot으로 색을 미리 지정
         var roomSlots = (NetworkManager.singleton as AmongUsRoomManager).roomSlots;
         foreach (var player in roomSlots)
