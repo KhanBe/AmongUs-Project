@@ -1,5 +1,7 @@
 # AmongUs-Project
- make Among-Us
+
+ 
+Sprite 제공 : spriters-resource.com
 
 <details>
  <summary>2022-08-26</summary>
