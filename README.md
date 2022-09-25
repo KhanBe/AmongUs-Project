@@ -247,4 +247,15 @@
  
  ---
  
+ </details>
+ 
+ <details>
+ <summary>2022-09-26</summary>
+ 
+ **1. 게임 맵 구현**
+ - 스프라이트 시퀀스 애니메이션 : 스프라이트 이미지를 교체하는 방식의 애니메이션
+ - Weapon, O2, Navigation 맵, 애니메이션 구현
+ 
+ ---
+ 
 </details>
