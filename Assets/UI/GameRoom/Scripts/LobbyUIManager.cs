@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Mirror;
 
 public class LobbyUIManager : MonoBehaviour
 {
@@ -17,9 +18,16 @@ public class LobbyUIManager : MonoBehaviour
     public CustomizeUI CustomizeUI { get { return customizeUI; } }
 
     [SerializeField]
+    private GameRoomPlayerCounter gameRoomPlayerCounter;
+    public GameRoomPlayerCounter GameRoomPlayerCounter { get { return gameRoomPlayerCounter; } }
+
+    [SerializeField]
     private Button useButton;
     [SerializeField]
     private Sprite originUseButtonSprite;
+
+    [SerializeField]
+    private Button startButton;
 
     private void Awake()
     {
@@ -42,5 +50,28 @@ public class LobbyUIManager : MonoBehaviour
         useButton.image.sprite = originUseButtonSprite;
         useButton.onClick.RemoveAllListeners();
         useButton.interactable = false;
+    }
+
+    //AmongUsRoomPlayer의 start()에서 호출
+    public void ActiveStartButton()
+    {
+        startButton.gameObject.SetActive(true);
+    }
+
+    //GameRoomPlayerCounter의 UpdatePlayerCount()에서 호출
+    public void SetInteractableButton(bool isInteractable)
+    {
+        startButton.interactable = isInteractable;
+    }
+
+    public void OnClickStartButton()
+    {
+        var players = FindObjectsOfType<AmongUsRoomPlayer>();
+        //플레이어들을 준비상태로
+        foreach (var player in players) player.readyToBegin = true;
+
+        //Scene 전환
+        var manager = NetworkManager.singleton as AmongUsRoomManager;
+        manager.ServerChangeScene(manager.GameplayScene);
     }
 }

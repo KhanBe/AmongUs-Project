@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Mirror;
 
 //NetworkBehaviour 상속
@@ -44,6 +45,16 @@ public class CharacterMover : NetworkBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
         spriteRenderer.material.SetColor("_PlayerColor", PlayerColor.GetColor(newColor));
+    }
+
+    //닉네임
+    [SyncVar(hook = nameof(SetNickname_Hook))]
+    public string nickname;
+    [SerializeField]
+    private Text nicknameText;
+    public void SetNickname_Hook(string _, string value)
+    {
+        nicknameText.text = value;
     }
 
     void Start()
@@ -101,5 +112,11 @@ public class CharacterMover : NetworkBehaviour
             isMove = dir.magnitude != 0f;
             animator.SetBool("isMove", isMove);
         }
+
+        //localScale을 뒤집으면 닉네임도 뒤집어져서 다시 뒤집어줌
+        if (transform.localScale.x < 0)
+            nicknameText.transform.localScale = new Vector3(-1f, 1f, 1f);
+        else if (transform.localScale.x > 0)
+            nicknameText.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }

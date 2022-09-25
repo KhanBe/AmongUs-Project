@@ -35,6 +35,9 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         LobbyUIManager.Instance.CustomizeUI.UpdateSelectColorButton(newColor);//활성
     }
 
+    [SyncVar]
+    public string nickname;
+
     public CharacterMover lobbyPlayerCharacter;
 
     public void Start()
@@ -42,15 +45,30 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         //이미 상속된 부모 클래스 NetworkRoomPlayer에서 Start()함수가 호출되어있기 때문에
         //base.Start()로 Start함수를 호출한다.
         base.Start();
-        
-        if (isServer) SpawnLobbyPlayerCharacter();
+
+        //서버역할일 경우
+        if (isServer)
+        {
+            SpawnLobbyPlayerCharacter();
+            LobbyUIManager.Instance.ActiveStartButton();
+        }
+
+        if (isLocalPlayer) CmdSetNickname(PlayerSettings.nickname);
+
+        //중앙 하단 플레이어 수
+        LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
     }
 
     //방에서 나가 오브젝트 파괴 시 색상선택버튼 활성화
     private void OnDestroy()
     {
         if (LobbyUIManager.Instance != null)
+        {
             LobbyUIManager.Instance.CustomizeUI.UpdateUnselectColorButton(playerColor);
+
+            //중앙 하단 플레이어 수
+            LobbyUIManager.Instance.GameRoomPlayerCounter.UpdatePlayerCount();
+        }   
     }
 
     //Command Attribute (Mirror API 제공 : 클라이언트에서 함수 실행 시 서버에서 함수 동작)
@@ -60,6 +78,13 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
     {
         playerColor = color;
         lobbyPlayerCharacter.playerColor = color;
+    }
+
+    [Command]
+    public void CmdSetNickname(string nick)
+    {
+        nickname = nick;
+        lobbyPlayerCharacter.nickname = nick;
     }
 
     private void SpawnLobbyPlayerCharacter()
@@ -109,7 +134,6 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
         NetworkServer.Spawn(playerChracter.gameObject, connectionToClient);
 
         playerChracter.ownerNetId = netId;
-
         playerChracter.playerColor = color;
     }
 }

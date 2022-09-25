@@ -12053,7 +12053,7 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 8862928474227949839, guid: 6031b1a5315896c46a85ccd84a2849d2, type: 3}
-  showRoomGUI: 1
+  showRoomGUI: 0
   minPlayers: 1
   roomPlayerPrefab: {fileID: 4664930091431148764, guid: 88c73a45a2f55b04383c5c03b33fb921, type: 3}
   RoomScene: Assets/Scenes/Game Room.unity
@@ -12061,6 +12061,8 @@ MonoBehaviour:
   _allPlayersReady: 0
   roomSlots: []
   clientIndex: 0
+  minPlayerCount: 0
+  imposterCount: 0
 --- !u!4 &1657057868
 Transform:
   m_ObjectHideFlags: 0
