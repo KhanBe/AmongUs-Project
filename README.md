@@ -171,8 +171,6 @@
  ---
  
 </details>
-
- </details>
  
  <details>
  <summary>2022-09-20</summary>
@@ -215,8 +213,6 @@
  
 </details>
 
-</details>
-
  <details>
  <summary>2022-09-22</summary>
  
@@ -228,15 +224,26 @@
  
 </details>
 
-</details>
-
-</details>
-
  <details>
  <summary>2022-09-24</summary>
  
  **1. 게임 규칙 UI 배치**
  - 스크롤뷰에서 목록이 많이 있으면 Viewport의 Mask 컴포넌트를 꺼서 작업하면 편리함.
+ 
+ ---
+ 
+</details>
+
+<details>
+ <summary>2022-09-25</summary>
+ 
+ **1. 중앙 하단 플레이어 인원 Text 구현**
+ 
+ **2. 플레이어 닉네임 표시 구현**
+ - 각 캐릭터마다 캔버스를 가지도록 구현
+ - OnlineUI의 ```PlayerSettings.nickname = nicknameInputField.text;``` > AmongUsRoomPlayer의 ```CmdSetNickname(string nick)``` > CharacterMover의 nickname으로 전달
+ 
+ **3. 게임 시작 버튼 구현**
  
  ---
  
