@@ -1,5 +1,7 @@
 # AmongUs-Project
- make Among-Us
+
+ 
+Sprite 제공 : spriters-resource.com
 
 <details>
  <summary>2022-08-26</summary>
@@ -244,6 +246,17 @@
  - OnlineUI의 ```PlayerSettings.nickname = nicknameInputField.text;``` > AmongUsRoomPlayer의 ```CmdSetNickname(string nick)``` > CharacterMover의 nickname으로 전달
  
  **3. 게임 시작 버튼 구현**
+ 
+ ---
+ 
+ </details>
+ 
+ <details>
+ <summary>2022-09-26</summary>
+ 
+ **1. 게임 맵 구현**
+ - 스프라이트 시퀀스 애니메이션 : 스프라이트 이미지를 교체하는 방식의 애니메이션
+ - Weapon, O2, Navigation 맵, 애니메이션 구현
  
  ---
  
