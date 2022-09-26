@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\AmongUsGamePlayer.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\LobbyUIManager.cs" />
     <Compile Include="Assets\Scripts\SpawnPositions.cs" />
+    <Compile Include="Assets\Map\TheSkeld\Scripts\WeaponPipeLightStarter.cs" />
     <Compile Include="Assets\Scripts\SortingSprite.cs" />
     <Compile Include="Assets\UI\Online UI\Scripts\CreateRoomUI.cs" />
     <Compile Include="Assets\Map\Scripts\CustomizeLaptop.cs" />
@@ -73,13 +74,13 @@
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\FloatingCrew.cs" />
     <Compile Include="Assets\Scripts\SpriteSorter.cs" />
     <Compile Include="Assets\Scripts\GameRuleStore.cs" />
+    <Compile Include="Assets\Map\TheSkeld\Scripts\WeaponPipeLight.cs" />
     <Compile Include="Assets\Map\Scripts\OutlineObject.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\CrewFloater.cs" />
     <Compile Include="Assets\Character\Scripts\CharacterMover.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\CustomizeUI.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
-    <Compile Include="Assets\Map\TheSkeld\Scripts\WeaponPipeLight.cs" />
-    <Compile Include="Assets\Map\TheSkeld\Scripts\WeaponPipeLightStarter.cs" />
+    <Compile Include="Assets\Map\TheSkeld\Scripts\EngineBody.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
