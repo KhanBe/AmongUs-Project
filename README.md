@@ -261,3 +261,14 @@ Sprite 제공 : spriters-resource.com
  ---
  
 </details>
+
+ <details>
+ <summary>2022-09-27</summary>
+ 
+ **1. 게임 맵 전체 구현**
+ - 스프라이트 시퀀스 애니메이션 : 스프라이트 이미지를 교체하는 방식의 애니메이션
+ - Cafeteria, Admin, Medbay, Upper Engine, Lower Engine, Security, Reactor, Electrical , Storage, Communications, Shields, Rocket Engine 맵, 애니메이션 구현
+ 
+ ---
+ 
+</details>
