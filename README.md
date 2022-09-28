@@ -272,3 +272,14 @@ Sprite 제공 : spriters-resource.com
  ---
  
 </details>
+
+</details>
+
+ <details>
+ <summary>2022-09-28</summary>
+ 
+ **1. 게임 오브젝트 세팅**
+ 
+ ---
+ 
+</details>
