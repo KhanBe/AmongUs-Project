@@ -273,13 +273,22 @@ Sprite 제공 : spriters-resource.com
  
 </details>
 
-</details>
-
  <details>
  <summary>2022-09-28</summary>
  
- **1. 게임 오브젝트 세팅**
- 
+ **1. 인게임 플레이어 세팅**
+ - Scale : Lobby > 0.5, Ingame > 0.36
  ---
  
 </details>
+ 
+<details>
+ <summary>2022-09-29</summary>
+ 
+ **1. 플레이어 타입 설정 크루원/임포스터**
+ - 인트로에서 텍스트랑 이미지 하나가 안나오는 오류
+ ---
+ 
+</details>
+
+
