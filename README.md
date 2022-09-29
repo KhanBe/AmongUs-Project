@@ -286,7 +286,7 @@ Sprite 제공 : spriters-resource.com
  <summary>2022-09-29</summary>
  
  **1. 플레이어 타입 설정 크루원/임포스터**
- - 인트로에서 텍스트랑 이미지 하나가 안나오는 오류
+ - 인트로에서 텍스트랑 이미지 하나가 안나오는 오류, [SerializeField] 로 Color값을 줬는데 알파가 0으로 Default 였음 개고생
  ---
  
 </details>
