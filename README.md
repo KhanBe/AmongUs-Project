@@ -291,4 +291,20 @@ Sprite 제공 : spriters-resource.com
  
 </details>
 
+<details>
+ <summary>2022-10-01</summary>
+ 
+ **1. 인트로 닫기**
+ 
+ **2. 플레이어 스폰 위치 설정**
+ - 선형보간과 cos, sin으로 배치
+ 
+ **3. 맵 전체 Collider 설정**
+ 
+ **4. 임포스터일 시 서로 플레이어 NicknameText RED로 구현**
+ 
+ ---
+ 
+</details>
+
 
