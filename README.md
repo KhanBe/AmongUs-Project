@@ -272,3 +272,39 @@ Sprite 제공 : spriters-resource.com
  ---
  
 </details>
+
+ <details>
+ <summary>2022-09-28</summary>
+ 
+ **1. 인게임 플레이어 세팅**
+ - Scale : Lobby > 0.5, Ingame > 0.36
+ ---
+ 
+</details>
+ 
+<details>
+ <summary>2022-09-29</summary>
+ 
+ **1. 플레이어 타입 설정 크루원/임포스터**
+ - 인트로에서 텍스트랑 이미지 하나가 안나오는 오류, [SerializeField] 로 Color값을 줬는데 알파가 0으로 Default 였음 개고생
+ ---
+ 
+</details>
+
+<details>
+ <summary>2022-10-01</summary>
+ 
+ **1. 인트로 닫기**
+ 
+ **2. 플레이어 스폰 위치 설정**
+ - 선형보간과 cos, sin으로 배치
+ 
+ **3. 맵 전체 Collider 설정**
+ 
+ **4. 임포스터일 시 서로 플레이어 NicknameText RED로 구현**
+ 
+ ---
+ 
+</details>
+
+
