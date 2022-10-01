@@ -64,14 +64,19 @@ public class LobbyUIManager : MonoBehaviour
         startButton.interactable = isInteractable;
     }
 
+    //Start버튼 클릭 시 이벤트 함수
     public void OnClickStartButton()
     {
+        var manager = NetworkManager.singleton as AmongUsRoomManager;
+
+        //AmongUsRoomManager의 gameRuleData에 저장
+        manager.gameRuleData = FindObjectOfType<GameRuleStore>().GetGameRuleData();
+
         var players = FindObjectsOfType<AmongUsRoomPlayer>();
         //플레이어들을 준비상태로
         foreach (var player in players) player.readyToBegin = true;
 
         //Scene 전환
-        var manager = NetworkManager.singleton as AmongUsRoomManager;
         manager.ServerChangeScene(manager.GameplayScene);
     }
 }

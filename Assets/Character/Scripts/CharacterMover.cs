@@ -34,6 +34,12 @@ public class CharacterMover : NetworkBehaviour
     [SyncVar]
     public float speed = 2f;
 
+    [SerializeField]
+    private float characterSize = 0.5f;
+
+    [SerializeField]
+    private float cameraSize = 2.5f;
+
     //hook SyncVar로 동기화된 변수가 서버에서 변경되면 hook으로 등록한 함수를 클라이언트에서 호출하는 기능
     [SyncVar(hook = nameof(SetPlayerColor_Hook))]
     public EPlayerColor playerColor;
@@ -51,13 +57,14 @@ public class CharacterMover : NetworkBehaviour
     [SyncVar(hook = nameof(SetNickname_Hook))]
     public string nickname;
     [SerializeField]
-    private Text nicknameText;
+    protected Text nicknameText;
     public void SetNickname_Hook(string _, string value)
     {
         nicknameText.text = value;
     }
 
-    void Start()
+    //virtual : 상속에서 재정의 가능하게
+    public virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.material.SetColor("_PlayerColor", PlayerColor.GetColor(playerColor));//초기값
@@ -69,7 +76,7 @@ public class CharacterMover : NetworkBehaviour
             Camera cam = Camera.main;
             cam.transform.SetParent(transform);
             cam.transform.localPosition = new Vector3(0f, 0f, -10f);
-            cam.orthographicSize = 2.5f;
+            cam.orthographicSize = cameraSize;
         }
     }
     void FixedUpdate()
@@ -100,8 +107,8 @@ public class CharacterMover : NetworkBehaviour
                 }
             }
             //Flip
-            if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
-            else if (dir.x > 0f) transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+            if (dir.x < 0f) transform.localScale = new Vector3(-characterSize, characterSize, 1f);
+            else if (dir.x > 0f) transform.localScale = new Vector3(characterSize, characterSize, 1f);
             //이걸로는 동기화 안됨
             //if (dir.x < 0f) spriteRenderer.flipX = true;
             //else if (dir.x > 0f) spriteRenderer.flipX = false;

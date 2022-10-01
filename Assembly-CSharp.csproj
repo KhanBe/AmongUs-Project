@@ -75,12 +75,17 @@
     <Compile Include="Assets\Scripts\SpriteSorter.cs" />
     <Compile Include="Assets\Scripts\GameRuleStore.cs" />
     <Compile Include="Assets\Map\TheSkeld\Scripts\WeaponPipeLight.cs" />
+    <Compile Include="Assets\Map\TheSkeld\Scripts\EngineBody.cs" />
     <Compile Include="Assets\Map\Scripts\OutlineObject.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\CrewFloater.cs" />
     <Compile Include="Assets\Character\Scripts\CharacterMover.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\CustomizeUI.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
-    <Compile Include="Assets\Map\TheSkeld\Scripts\EngineBody.cs" />
+    <Compile Include="Assets\Character\Scripts\IngameCharacterMover.cs" />
+    <Compile Include="Assets\Scripts\GameSystem.cs" />
+    <Compile Include="Assets\UI\Scripts\IntroCharacter.cs" />
+    <Compile Include="Assets\UI\Scripts\IngameIntroUI.cs" />
+    <Compile Include="Assets\UI\Scripts\IngameUIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

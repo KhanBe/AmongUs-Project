@@ -15,6 +15,7 @@ public enum ETaskBarUpdates
     Always, Meetings, Never
 }
 
+//구조체
 public struct GameRuleData
 {
     public bool confirmEjects;
@@ -27,6 +28,7 @@ public struct GameRuleData
     public float crewSight;
     public float imposterSight;
     public EKillRange killRange;
+    public float killCooldown;
     public bool visualTasks;
     public ETaskBarUpdates taskBarUpdates;
     public int commonTask;
@@ -389,9 +391,27 @@ public class GameRuleStore : NetworkBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    //구조체 반환
+    public GameRuleData GetGameRuleData()
     {
-        
+        return new GameRuleData()
+        {
+            anonymousVotes = anonymousVotes,
+            confirmEjects = confirmEjects,
+            crewSight = crewSight,
+            imposterSight = imposterSight,
+            emergencyMeetings = emergencyMeetings,
+            emergencyMeeingsCooldown = emergencyMeetingsCooldown,
+            killRange = killRange,
+            killCooldown = killCooldown,
+            moveSpeed = moveSpeed,
+            taskBarUpdates = taskBarUpdates,
+            commonTask = commonTask,
+            complexTask = complexTask,
+            simpleTask = simpleTask,
+            visualTasks = visualTasks,
+            meetingsTime = meetingsTime,
+            voteTime = voteTime
+        };
     }
 }
