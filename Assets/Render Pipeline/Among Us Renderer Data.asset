@@ -25,10 +25,10 @@ MonoBehaviour:
     customBlendFactors:
       multiplicative: 0
       additive: 0
-  - name: Blend Style 1
+  - name: Light Map
     maskTextureChannel: 0
     renderTextureScale: 0.5
-    blendMode: 1
+    blendMode: 0
     customBlendFactors:
       multiplicative: 0
       additive: 0

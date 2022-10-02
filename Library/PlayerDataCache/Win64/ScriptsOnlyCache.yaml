@@ -77,15 +77,21 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
     Unity.RenderPipelines.Universal.Editor.dll:
+    - UnityEditor.Experimental.Rendering.Universal.Path2D.ScriptablePathInspector
+    - UnityEditor.Experimental.Rendering.Universal.Renderer2DDataEditor
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
+    - UnityEngine.Experimental.Rendering.Universal.CompositeShadowCaster2D
     - UnityEngine.Experimental.Rendering.Universal.Light2D
     - UnityEngine.Experimental.Rendering.Universal.Renderer2DData
+    - UnityEngine.Experimental.Rendering.Universal.ShadowCaster2D
     - UnityEngine.Rendering.Universal.PostProcessData
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.ShaderGraph.Editor.dll:
+    - UnityEditor.ShaderGraph.SubGraphAsset
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -126,6 +132,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
     - Class: 60
@@ -133,6 +141,8 @@ ScriptsOnlyBuild:
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 84
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -147,7 +157,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1608}
     - Class: 114
+      Script: {instanceID: 1980}
+    - Class: 114
       Script: {instanceID: 2776}
+    - Class: 114
+      Script: {instanceID: 3184}
     - Class: 114
       Script: {instanceID: 3370}
     - Class: 114
