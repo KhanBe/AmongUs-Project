@@ -307,4 +307,14 @@ Sprite 제공 : spriters-resource.com
  
 </details>
 
+<details>
+ <summary>2022-10-03</summary>
+ 
+ **1. 인게임 그림자 구현**
+ - Composite Shadow Caster 2D Component : 해당 오브젝트의 자식 오브젝트이 가진 Shadow Caster들을 통합해주는 기능 컴포넌트 
+ 
+ ---
+ 
+</details>
+
 
