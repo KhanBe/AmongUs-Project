@@ -1,7 +1,18 @@
 # AmongUs-Project
 
- 
-Sprite 제공 : spriters-resource.com
+![AmongUs](https://user-images.githubusercontent.com/61501112/193694456-c481c254-5c18-45c3-b1b9-a1e92b14f813.jpg)
+
+## 프로젝트 목표
+- AmongUs 2D게임 구현
+
+## 사용 기술
+- 유니티
+- C#
+
+## Sprite 제공
+- spriters-resource.com
+
+---
 
 <details>
  <summary>2022-08-26</summary>
