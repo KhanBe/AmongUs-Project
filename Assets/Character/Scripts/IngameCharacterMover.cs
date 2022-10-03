@@ -42,6 +42,7 @@ public class IngameCharacterMover : CharacterMover
             IsMoveable = true;
 
             var myRoomPlayer = AmongUsRoomPlayer.MyRoomPlayer;
+            myRoomPlayer.myCharacter = this;
             CmdSetPlayerCharacter(myRoomPlayer.nickname, myRoomPlayer.playerColor);
         }
 

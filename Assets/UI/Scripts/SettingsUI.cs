@@ -19,7 +19,7 @@ public class SettingsUI : MonoBehaviour
     //게임오브젝트가 활성화 될 때 호출되는 함수
     private void OnEnable()
     {
-        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.IsMoveable = false;
+        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = false;
 
         switch (PlayerSettings.controlType)
         {
@@ -54,9 +54,9 @@ public class SettingsUI : MonoBehaviour
     }
 
     //닫히는 애니 재생후 오브젝트 비활성화
-    public void Close()
+    public virtual void Close()
     {
-        AmongUsRoomPlayer.MyRoomPlayer.lobbyPlayerCharacter.IsMoveable = true;
+        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = true;
         StartCoroutine(CloseAfterDelay());
     }
 

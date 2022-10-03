@@ -17,7 +17,7 @@ public class LobbyCharacterMover : CharacterMover
             //netId를 이용해 자신의 RoomPlayer찾기
             if (newOwnerId == player.netId)
             {
-                player.lobbyPlayerCharacter = this;
+                player.myCharacter = this;
                 break;
             }
         }
