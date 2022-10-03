@@ -317,4 +317,17 @@ Sprite 제공 : spriters-resource.com
  
 </details>
 
+<details>
+ <summary>2022-10-04</summary>
+ 
+ **1. 임무 UI 구현**
+
+ **2. 인게임 Setting UI 구현**
+ 
+ **3. 인게임 미니맵 구현**
+ 
+ ---
+ 
+</details>
+
 
