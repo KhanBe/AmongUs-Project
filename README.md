@@ -9,10 +9,12 @@
 - 유니티
 - C#
 
-## Sprite 제공
+## Sprite
 - spriters-resource.com
 
 ---
+
+### 일지
 
 <details>
  <summary>2022-08-26</summary>
@@ -335,7 +337,14 @@
 
  **2. 인게임 Setting UI 구현**
  
- **3. 인게임 미니맵 구현**
+ **3. 인게임 미니맵/현위치 구현**
+ - 미니맵을 normalized(정규화)하여 구현
+ 
+ **4. 킬 버튼 구현**
+ - 킬의 쿨타임 표시
+ - Circle Collider 2D컴포넌트로 킬 범위 설정
+ - 킬버튼 클릭 시 시체 표현
+ - 시체 애니메이션
  
  ---
  
