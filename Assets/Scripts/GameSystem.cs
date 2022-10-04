@@ -16,6 +16,13 @@ public class GameSystem : NetworkBehaviour
     [SerializeField]
     private float spawnDistance;
 
+    [SyncVar]
+    public float killCooldown;
+
+    [SyncVar]
+    public int killRange;
+
+    //전체 플레이어 리스트 가져오는 함수
     public List<IngameCharacterMover> GetPlayerList() { return players; }
 
     public void AddPlayer(IngameCharacterMover player)
@@ -28,6 +35,10 @@ public class GameSystem : NetworkBehaviour
     private IEnumerator GameReady()
     {
         var manager = NetworkManager.singleton as AmongUsRoomManager;
+
+        //값 초기화
+        killCooldown = manager.gameRuleData.killCooldown;
+        killRange = (int)(manager.gameRuleData.killRange);
 
         //players에 IngameCharacterMover객체들이 다 들어갔는지 기다림
         while (manager.roomSlots.Count != players.Count)
@@ -58,6 +69,11 @@ public class GameSystem : NetworkBehaviour
 
         yield return new WaitForSeconds(2f);
         RpcStartGame();
+
+        foreach (var player in players)
+        {
+            player.SetKillCooldown();
+        }
     }
 
     [ClientRpc]

@@ -11,6 +11,10 @@ public class IngameUIManager : MonoBehaviour
 
     public IngameIntroUI IngameIntroUI { get { return ingameIntroUI; } }
 
+    [SerializeField]
+    private KillButtonUI killButtonUI;
+    public KillButtonUI KillButtonUI { get { return killButtonUI; } }
+
     private void Awake()
     {
         Instance = this;

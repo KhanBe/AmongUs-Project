@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
     <Compile Include="Assets\Scripts\AmongUsRoomPlayer.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRuleItem.cs" />
+    <Compile Include="Assets\UI\Scripts\MinimapUI.cs" />
     <Compile Include="Assets\Character\Scripts\LobbyCharacterMover.cs" />
     <Compile Include="Assets\Scripts\PlayerColor.cs" />
     <Compile Include="Assets\Scripts\AmongUsGamePlayer.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Map\Scripts\CustomizeLaptop.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomPlayerCounter.cs" />
     <Compile Include="Assets\UI\Scripts\IntroCharacter.cs" />
+    <Compile Include="Assets\UI\Scripts\TaskListUI.cs" />
     <Compile Include="Assets\UI\Main Menu Crew\Scripts\FloatingCrew.cs" />
     <Compile Include="Assets\Scripts\SpriteSorter.cs" />
     <Compile Include="Assets\Scripts\GameRuleStore.cs" />
@@ -86,8 +88,9 @@
     <Compile Include="Assets\UI\GameRoom\Scripts\CustomizeUI.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
     <Compile Include="Assets\UI\Scripts\IngameUIManager.cs" />
-    <Compile Include="Assets\UI\Scripts\TaskListUI.cs" />
-    <Compile Include="Assets\UI\Scripts\MinimapUI.cs" />
+    <Compile Include="Assets\UI\Scripts\KillButtonUI.cs" />
+    <Compile Include="Assets\Scripts\PlayerFinder.cs" />
+    <Compile Include="Assets\Character\Scripts\Deadbody.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

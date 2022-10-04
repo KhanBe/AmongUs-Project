@@ -31,6 +31,7 @@ public class MinimapUI : MonoBehaviour
 
     private void Update()
     {
+        //left, right, top, bottom 기준으로 normalized(정규화)하여 미니맵 구상
         if (targetPlayer != null)
         {
             Vector2 mapArea = new Vector2(Vector3.Distance(left.position, right.position), Vector3.Distance(bottom.position, top.position));

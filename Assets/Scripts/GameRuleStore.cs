@@ -211,7 +211,7 @@ public class GameRuleStore : NetworkBehaviour
     private Text killCooldownText;
     public void SetKillCooldown_Hook(float _, float value)
     {
-        killCooldownText.text = string.Format("{0:0.0}x", value);
+        killCooldownText.text = string.Format("{0:0.0}", value);
         UpdateGameRuleOverview();
     }
     //각 UI에 대한 상호작용 콜백 함수
