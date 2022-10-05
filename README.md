@@ -350,4 +350,18 @@
  
 </details>
 
+<details>
+ <summary>2022-10-05</summary>
+ 
+ **1. KILL UI/Animation 구현**
+ 
+ **2. 죽은 크루원 유령으로 만들기**
+ - 최신버전 shader alpha값이 따로 빠져나와있어 오류 때문에 SpriteRenderer.color의 알파값으로 바꿔봄
+ ```
+ (채우기)
+ ```
+ 
+ ---
+ 
+</details>
 
