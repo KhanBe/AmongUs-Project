@@ -7,9 +7,9 @@ using Mirror;
 //NetworkBehaviour »ó¼Ó
 public class CharacterMover : NetworkBehaviour
 {
-    private SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
 
-    private Animator animator;
+    protected Animator animator;
 
     private bool isMoveable;
 

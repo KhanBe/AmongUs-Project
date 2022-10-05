@@ -4,10 +4,19 @@ using UnityEngine;
 using Mirror;
 
 //자기 타입
+// 첫 자리 : 0 - 크루원 / 1 - 임포스터
+// 두 자리 : 0 - 살아있음 / 1 - 죽음
+// 00 - 살아있는 크루원 / 01 살아있는 임포스터
+// 10 - 죽은 크루원 / 11 죽은 임포스터
 public enum EPlayerType
 {
-    Crew,
-    Imposter
+    Crew = 0,
+    Imposter = 1,
+    Ghost= 2,
+    Crew_Alive = 0,
+    Imposter_Alive = 1,
+    Crew_Ghost = 2,
+    Imposter_Ghost = 3,
 }
 
 public class IngameCharacterMover : CharacterMover
@@ -115,13 +124,48 @@ public class IngameCharacterMover : CharacterMover
         //null error
         if (target != null)
         {
-            var manager = NetworkRoomManager.singleton as AmongUsRoomManager;
-
-            //인스턴스화
-            var deadbody = Instantiate(manager.spawnPrefabs[1], target.transform.position, target.transform.rotation).GetComponent<Deadbody>();
-            NetworkServer.Spawn(deadbody.gameObject);
-            deadbody.RpcSetColor(target.playerColor);
+            //킬시 임포스터가 시체쪽으로 이동
+            RpcTeleport(target.transform.position);
+            target.Dead(playerColor);
             killCooldown = GameSystem.Instance.killCooldown;
+        }
+    }
+
+    //타깃 크루원 죽는 기능처리 함수
+    public void Dead(EPlayerColor imposterColor)
+    {
+        RpcDead(imposterColor, playerColor);
+        var manager = NetworkRoomManager.singleton as AmongUsRoomManager;
+
+        //인스턴스화
+        var deadbody = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation).GetComponent<Deadbody>();
+        NetworkServer.Spawn(deadbody.gameObject);//시체 생성
+        deadbody.RpcSetColor(playerColor);
+    }
+
+    [ClientRpc]
+    private void RpcDead(EPlayerColor imposterColor, EPlayerColor crewColor)
+    {
+        //죽은 크루원이 자신이면
+        if (hasAuthority)
+        {
+            animator.SetBool("isGhost", true);
+            IngameUIManager.Instance.KillUI.Open(imposterColor, crewColor);
+        }
+        else // 죽은 캐릭터가 내가 아니면
+        {
+            var myPlayer = AmongUsRoomPlayer.MyRoomPlayer.myCharacter as IngameCharacterMover;
+            if (((int)myPlayer.playerType & 0x02) != (int)EPlayerType.Ghost)
+            {
+                var color = PlayerColor.GetColor(playerColor);
+
+                //color.a = 0f;기본 값
+                //최신버전에서 material의 컬러 알파값 오류때문에 바꿔봄 (문제가 될 수 있음)
+                spriteRenderer.color = new Color(0f, 0f, 0f, 0f);
+
+                spriteRenderer.material.SetColor("_PlayerColor", color);
+                nicknameText.text = "";
+            }
         }
     }
 }

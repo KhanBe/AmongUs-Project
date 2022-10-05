@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
 public class AmongUsRoomPlayer : NetworkRoomPlayer
 {
-    private static AmongUsRoomPlayer myRoomPlayer;
+    private static AmongUsRoomPlayer myRoomPlayer; 
 
     //null 값이면 자기 자신플레이어를 반환하는 Property
     public static AmongUsRoomPlayer MyRoomPlayer

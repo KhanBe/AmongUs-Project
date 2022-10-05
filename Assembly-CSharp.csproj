@@ -53,12 +53,15 @@
     <UnityVersion>2020.3.30f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Character\Scripts\Deadbody.cs" />
     <Compile Include="Assets\Scripts\AmongUsRoomManager.cs" />
+    <Compile Include="Assets\UI\Scripts\KillButtonUI.cs" />
     <Compile Include="Assets\UI\Scripts\MainMenuUI.cs" />
     <Compile Include="Assets\UI\Scripts\SettingsUI.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\ColorSelectButton.cs" />
     <Compile Include="Assets\UI\Online UI\Scripts\OnlineUI.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
+    <Compile Include="Assets\UI\Scripts\KillUI.cs" />
     <Compile Include="Assets\Scripts\AmongUsRoomPlayer.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRuleItem.cs" />
     <Compile Include="Assets\UI\Scripts\MinimapUI.cs" />
@@ -88,9 +91,7 @@
     <Compile Include="Assets\UI\GameRoom\Scripts\CustomizeUI.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
     <Compile Include="Assets\UI\Scripts\IngameUIManager.cs" />
-    <Compile Include="Assets\UI\Scripts\KillButtonUI.cs" />
     <Compile Include="Assets\Scripts\PlayerFinder.cs" />
-    <Compile Include="Assets\Character\Scripts\Deadbody.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
