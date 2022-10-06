@@ -356,10 +356,45 @@
  **1. KILL UI/Animation 구현**
  
  **2. 죽은 크루원 유령으로 만들기**
- - 최신버전 shader alpha값이 따로 빠져나와있어 오류 때문에 SpriteRenderer.color의 알파값으로 바꿔봄
+ - 최신버전 shader alpha값이 따로 빠져나와있어 오류 때문에 color.a 값 변경시 오류로 spriteRenderer.color로 변경
+ 
  ```
- (채우기)
+    public void SetVisibility(bool isVisible)
+    {
+        if (isVisible)
+        {
+            var color = PlayerColor.GetColor(playerColor);
+            
+            //color.a = 0f;
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+
+            spriteRenderer.material.SetColor("_PlayerColor", color);
+            nicknameText.text = nickname;
+        }
+        else
+        {
+            var color = PlayerColor.GetColor(playerColor);
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            spriteRenderer.material.SetColor("_PlayerColor", color);
+            nicknameText.text = "";
+        }
+    }
  ```
+ 
+ ---
+ 
+</details>
+
+<details>
+ <summary>2022-10-07</summary>
+ 
+ **1. Light**
+ - Shadow Light : 빛이 닿는 영역은 밝게, 아닌 부분은 어둡게
+ - Global Light : 어두운 부분을 보이게 해주는 라이트
+ - Light Map Light : 빛이 닿는 영역에 있는 캐릭터만 보이게하는 라이트
+ 
+ **2. Ghost Type Light/Collider 구현**
  
  ---
  
