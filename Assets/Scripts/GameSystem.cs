@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using Mirror;
 
 //플레이어들 객체를 찾아 GameSystem에 데이터 저장해야함
@@ -21,6 +22,16 @@ public class GameSystem : NetworkBehaviour
 
     [SyncVar]
     public int killRange;
+
+
+    [SerializeField]
+    private Light2D shadowLight;
+
+    [SerializeField]
+    private Light2D lightMapLight;
+
+    [SerializeField]
+    private Light2D globalLight;
 
     //전체 플레이어 리스트 가져오는 함수
     public List<IngameCharacterMover> GetPlayerList() { return players; }
@@ -116,5 +127,22 @@ public class GameSystem : NetworkBehaviour
     {
         //호스트일때만 실행해야한다
         if (isServer) StartCoroutine(GameReady());
+    }
+
+    //캐릭터타입에 따른 게임 밝기 변경 함수
+    public void ChangeLightMode(EPlayerType type)
+    {
+        if (type == EPlayerType.Ghost)
+        {
+            lightMapLight.lightType = Light2D.LightType.Global;
+            shadowLight.intensity = 0f;
+            globalLight.intensity = 1f;
+        }
+        else
+        {
+            lightMapLight.lightType = Light2D.LightType.Point;
+            shadowLight.intensity = 0.5f;
+            globalLight.intensity = 0.5f;
+        }
     }
 }

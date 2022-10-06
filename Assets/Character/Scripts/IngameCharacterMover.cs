@@ -69,6 +69,11 @@ public class IngameCharacterMover : CharacterMover
         }
     }
 
+    private void Awake()
+    {
+        
+    }
+
     public override void Start()
     {
         // CharacterMover의 Start()함수 호출
@@ -134,6 +139,7 @@ public class IngameCharacterMover : CharacterMover
     //타깃 크루원 죽는 기능처리 함수
     public void Dead(EPlayerColor imposterColor)
     {
+        playerType |= EPlayerType.Ghost;
         RpcDead(imposterColor, playerColor);
         var manager = NetworkRoomManager.singleton as AmongUsRoomManager;
 
@@ -151,21 +157,52 @@ public class IngameCharacterMover : CharacterMover
         {
             animator.SetBool("isGhost", true);
             IngameUIManager.Instance.KillUI.Open(imposterColor, crewColor);
+
+            var players = GameSystem.Instance.GetPlayerList();
+            
+            //이미 죽어있는 고스트들을 볼 수 있게
+            foreach (var player in players)
+            {
+                if ((player.playerType & EPlayerType.Ghost) == EPlayerType.Ghost)
+                {
+                    player.SetVisibility(true);
+                }
+            }
+            GameSystem.Instance.ChangeLightMode(EPlayerType.Ghost);
         }
-        else // 죽은 캐릭터가 내가 아니면
+        else // 죽은 크루원이 내가 아니면
         {
             var myPlayer = AmongUsRoomPlayer.MyRoomPlayer.myCharacter as IngameCharacterMover;
             if (((int)myPlayer.playerType & 0x02) != (int)EPlayerType.Ghost)
             {
-                var color = PlayerColor.GetColor(playerColor);
-
-                //color.a = 0f;기본 값
-                //최신버전에서 material의 컬러 알파값 오류때문에 바꿔봄 (문제가 될 수 있음)
-                spriteRenderer.color = new Color(0f, 0f, 0f, 0f);
-
-                spriteRenderer.material.SetColor("_PlayerColor", color);
-                nicknameText.text = "";
+                SetVisibility(false);
             }
+        }
+
+        //죽으면 자기캐릭터의 BoxCollider 비활성
+        var collider = GetComponent<BoxCollider2D>();
+        if (collider) collider.enabled = false;
+    }
+
+    public void SetVisibility(bool isVisible)
+    {
+        if (isVisible)
+        {
+            var color = PlayerColor.GetColor(playerColor);
+            //color.a = 0f;기본 값
+            //최신버전에서 material의 컬러 알파값 오류때문에 바꿔봄 (문제가 될 수 있음)
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+
+            spriteRenderer.material.SetColor("_PlayerColor", color);
+            nicknameText.text = nickname;
+        }
+        else
+        {
+            var color = PlayerColor.GetColor(playerColor);
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            spriteRenderer.material.SetColor("_PlayerColor", color);
+            nicknameText.text = "";
         }
     }
 }
