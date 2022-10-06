@@ -42,6 +42,8 @@ public class IngameCharacterMover : CharacterMover
 
     public bool isKillable { get { return killCooldown < 0f && playerFinder.targets.Count != 0; } }//bool타입 킬가능여부 함수
 
+    public EPlayerColor foundDeadbodyColor;
+
     //킬 쿨타임 설정하는 함수
     public void SetKillCooldown()
     {
@@ -67,11 +69,6 @@ public class IngameCharacterMover : CharacterMover
         {
             nicknameText.color = Color.red;
         }
-    }
-
-    private void Awake()
-    {
-        
     }
 
     public override void Start()
@@ -204,5 +201,17 @@ public class IngameCharacterMover : CharacterMover
             spriteRenderer.material.SetColor("_PlayerColor", color);
             nicknameText.text = "";
         }
+    }
+
+    public void Report()
+    {
+        CmdReport(foundDeadbodyColor);
+    }
+
+    //서버로 전달된 신호를 다른플레이어들에게 전달
+    [Command]
+    public void CmdReport(EPlayerColor deadbodyColor)
+    {
+        GameSystem.Instance.StartReportMeeting(deadbodyColor);
     }
 }

@@ -92,6 +92,8 @@
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
     <Compile Include="Assets\UI\Scripts\IngameUIManager.cs" />
     <Compile Include="Assets\Scripts\PlayerFinder.cs" />
+    <Compile Include="Assets\UI\Scripts\ReportButtonUI.cs" />
+    <Compile Include="Assets\UI\Scripts\ReportUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

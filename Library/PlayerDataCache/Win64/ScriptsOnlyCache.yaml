@@ -29,6 +29,8 @@ ScriptsOnlyBuild:
     - OnlineUI
     - OutlineObject
     - PlayerFinder
+    - ReportButtonUI
+    - ReportUI
     - SettingsUI
     - SortingSprite
     - SpawnPositions
@@ -97,8 +99,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -200,6 +204,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 8206}
     - Class: 114
       Script: {instanceID: 8232}
+    - Class: 114
+      Script: {instanceID: 28354}
+    - Class: 114
+      Script: {instanceID: 44814}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1585,7 +1593,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 18f6e960d572dcbf48afca4f273b41ce
+      Hash: 380b29782405b48b66e84f18379632db
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IngameCharacterMover
@@ -2071,7 +2079,7 @@ ScriptsOnlyBuild:
     className: ChatNetworkManager
   - hash:
       serializedVersion: 2
-      Hash: 4b34a9ba05ba96ad6f5a1971bf1c82ea
+      Hash: b8e1140e3f86119f1a9654485b50b454
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IngameUIManager
@@ -2177,6 +2185,18 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: b7aa92a23fd4068d033a682c4cc20233
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ReportButtonUI
+  - hash:
+      serializedVersion: 2
+      Hash: 1ba625ab250f73200744ec59ba089d5f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ReportUI
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

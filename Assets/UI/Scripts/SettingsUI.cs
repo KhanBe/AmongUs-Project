@@ -7,8 +7,10 @@ public class SettingsUI : MonoBehaviour
 {
     [SerializeField]
     private Button MouseControlButton;
+
     [SerializeField]
     private Button KeyboardMouseControlButton;
+
     private Animator animator;
 
     private void Awake()
@@ -19,7 +21,8 @@ public class SettingsUI : MonoBehaviour
     //게임오브젝트가 활성화 될 때 호출되는 함수
     private void OnEnable()
     {
-        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = false;
+        //null error
+        //AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = false;
 
         switch (PlayerSettings.controlType)
         {
@@ -56,7 +59,8 @@ public class SettingsUI : MonoBehaviour
     //닫히는 애니 재생후 오브젝트 비활성화
     public virtual void Close()
     {
-        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = true;
+        //null error
+        //AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = true;
         StartCoroutine(CloseAfterDelay());
     }
 
