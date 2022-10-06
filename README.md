@@ -396,6 +396,8 @@
  
  **2. Ghost Type Light/Collider 구현**
  
+ **3. Report UI / Button 구현**
+ 
  ---
  
 </details>
