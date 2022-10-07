@@ -67,6 +67,8 @@
     <Compile Include="Assets\UI\Scripts\MinimapUI.cs" />
     <Compile Include="Assets\Character\Scripts\LobbyCharacterMover.cs" />
     <Compile Include="Assets\Scripts\PlayerColor.cs" />
+    <Compile Include="Assets\UI\Scripts\ReportButtonUI.cs" />
+    <Compile Include="Assets\UI\Scripts\ReportUI.cs" />
     <Compile Include="Assets\Scripts\AmongUsGamePlayer.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\LobbyUIManager.cs" />
     <Compile Include="Assets\Scripts\SpawnPositions.cs" />
@@ -92,8 +94,8 @@
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
     <Compile Include="Assets\UI\Scripts\IngameUIManager.cs" />
     <Compile Include="Assets\Scripts\PlayerFinder.cs" />
-    <Compile Include="Assets\UI\Scripts\ReportButtonUI.cs" />
-    <Compile Include="Assets\UI\Scripts\ReportUI.cs" />
+    <Compile Include="Assets\UI\Scripts\MeetingPlayerPanel.cs" />
+    <Compile Include="Assets\UI\Scripts\MeetingUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

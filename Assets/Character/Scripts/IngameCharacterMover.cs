@@ -44,6 +44,9 @@ public class IngameCharacterMover : CharacterMover
 
     public EPlayerColor foundDeadbodyColor;
 
+    [SyncVar]
+    public bool isReporter = false;
+
     //킬 쿨타임 설정하는 함수
     public void SetKillCooldown()
     {
@@ -212,6 +215,7 @@ public class IngameCharacterMover : CharacterMover
     [Command]
     public void CmdReport(EPlayerColor deadbodyColor)
     {
+        isReporter = true;
         GameSystem.Instance.StartReportMeeting(deadbodyColor);
     }
 }
