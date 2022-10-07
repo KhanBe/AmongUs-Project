@@ -14,7 +14,7 @@
 
 ---
 
-### 일지
+## 일지
 
 <details>
  <summary>2022-08-26</summary>
@@ -398,6 +398,15 @@
  
  **3. Report UI / Button 구현**
  
+ ---
+ 
+</details>
+
+<details>
+ <summary>2022-10-08</summary>
+ 
+ **1. Meeing UI 구현**
+
  ---
  
 </details>
