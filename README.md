@@ -411,3 +411,12 @@
  
 </details>
 
+<details>
+ <summary>2022-10-09</summary>
+ 
+ **1. Vote 기능 구현**
+
+ ---
+ 
+</details>
+
