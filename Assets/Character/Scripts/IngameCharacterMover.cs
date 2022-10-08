@@ -45,7 +45,7 @@ public class IngameCharacterMover : CharacterMover
     public EPlayerColor foundDeadbodyColor;
 
     [SyncVar]
-    public bool isReporter = false;
+    public bool isReporter = false;//자신이 보고자인지 아닌지 변수
 
     //킬 쿨타임 설정하는 함수
     public void SetKillCooldown()

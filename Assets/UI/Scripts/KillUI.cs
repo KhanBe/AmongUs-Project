@@ -36,6 +36,14 @@ public class KillUI : MonoBehaviour
     public void Close()
     {
         gameObject.SetActive(false);
-        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = true;
+
+
+        //killUI가 닫히기 전 Report시 Ghost가 회의 중 움직이는 현상이 발생
+        //AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = true;
+
+        //UI가 하나라도 켜져있으면 false
+        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable =
+            !(IngameUIManager.Instance.ReportUI.gameObject.activeSelf || 
+            IngameUIManager.Instance.MeetingUI.gameObject.activeSelf);
     }
 }

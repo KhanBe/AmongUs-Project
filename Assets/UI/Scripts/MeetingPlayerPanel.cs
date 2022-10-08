@@ -18,9 +18,12 @@ public class MeetingPlayerPanel : MonoBehaviour
     [SerializeField]
     private GameObject reportSign;
 
+    [SerializeField]
+    private GameObject voteButtons;
+
     public IngameCharacterMover targetPlayer;
 
-    //미팅 시 플레이어들 세팅
+    //플레이어 판넬 세팅
     public void SetPlayer(IngameCharacterMover target)
     {
         Material inst = Instantiate(characterImg.material);
@@ -38,8 +41,29 @@ public class MeetingPlayerPanel : MonoBehaviour
             nicknameText.color = Color.red;
         }
 
-        deadPlayerBlock.SetActive((targetPlayer.playerType & EPlayerType.Ghost) == EPlayerType.Ghost);
+        bool isDead = (targetPlayer.playerType & EPlayerType.Ghost) == EPlayerType.Ghost;
+
+        //죽으면 블라인드 처리 img
+        deadPlayerBlock.SetActive(isDead);
+        //죽으면 버튼 상호작용 불가능하게
+        GetComponent<Button>().interactable = !isDead;
         reportSign.SetActive(targetPlayer.isReporter);
     }
 
+    public void OnClickPlayerPanel()
+    {
+        var myCharacter = AmongUsRoomPlayer.MyRoomPlayer.myCharacter as IngameCharacterMover;
+
+        //고스트가 아닐경우에만 Panel버튼작동
+        if ((myCharacter.playerType & EPlayerType.Ghost) != EPlayerType.Ghost)
+        {
+            IngameUIManager.Instance.MeetingUI.SelectPlayerPanel();
+            voteButtons.SetActive(true);
+        }
+    }
+
+    public void Unselect()
+    {
+        voteButtons.SetActive(false);
+    }
 }
