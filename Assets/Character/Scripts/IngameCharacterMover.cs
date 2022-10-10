@@ -47,6 +47,14 @@ public class IngameCharacterMover : CharacterMover
     [SyncVar]
     public bool isReporter = false;//자신이 보고자인지 아닌지 변수
 
+    //투표를 했는지 안했는지 변수
+    [SyncVar]
+    public bool isVote;
+
+    //자신이 몇표받았는지 변수
+    [SyncVar]
+    public int vote;
+
     //킬 쿨타임 설정하는 함수
     public void SetKillCooldown()
     {
@@ -217,5 +225,35 @@ public class IngameCharacterMover : CharacterMover
     {
         isReporter = true;
         GameSystem.Instance.StartReportMeeting(deadbodyColor);
+    }
+
+    //표를 받은 플레이어의 vote값을 바꿔주고 / isVote를 변경해주는 함수
+    [Command]
+    public void CmdVoteEjectPlayer(EPlayerColor ejectColor)
+    {
+        isVote = true;
+        GameSystem.Instance.RpcSignVoteEject(playerColor, ejectColor);
+
+        var players = FindObjectsOfType<IngameCharacterMover>();
+
+        //표를 받은 플레이어, ejectColor : 표를받은 플레이어의 컬러
+        IngameCharacterMover ejectPlayer = null;
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].playerColor == ejectColor)
+            {
+                ejectPlayer = players[i];
+            }
+        }
+        ejectPlayer.vote += 1;
+    }
+
+    [Command]
+    public void CmdSkipVote()
+    {
+        isVote = true;
+        GameSystem.Instance.skipVotePlayerCount += 1;
+        GameSystem.Instance.RpcSignSkipVote(playerColor);
     }
 }

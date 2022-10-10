@@ -23,6 +23,35 @@ public class MeetingPlayerPanel : MonoBehaviour
 
     public IngameCharacterMover targetPlayer;
 
+    [SerializeField]
+    private GameObject voteSign;
+
+    [SerializeField]
+    private GameObject voterPrefab;
+
+    [SerializeField]
+    private Transform voterParentTransform;
+
+    public void UpdatePanel(EPlayerColor voterColor)
+    {
+        var voter = Instantiate(voterPrefab, voterParentTransform).GetComponent<Image>();
+
+        voter.material = Instantiate(voter.material);
+        voter.material.SetColor("_PlayerColor", PlayerColor.GetColor(voterColor));
+    }
+
+    //투표자 결과 활성화
+    public void OpenResult()
+    {
+        voterParentTransform.gameObject.SetActive(true);
+    }
+
+    //투표했다는 Sign 표시해주는 함수
+    public void UpdateVoteSign(bool isVoted)
+    {
+        voteSign.SetActive(isVoted);
+    }
+
     //플레이어 판넬 세팅
     public void SetPlayer(IngameCharacterMover target)
     {
@@ -54,12 +83,21 @@ public class MeetingPlayerPanel : MonoBehaviour
     {
         var myCharacter = AmongUsRoomPlayer.MyRoomPlayer.myCharacter as IngameCharacterMover;
 
+        if (myCharacter.isVote) return;
+
         //고스트가 아닐경우에만 Panel버튼작동
         if ((myCharacter.playerType & EPlayerType.Ghost) != EPlayerType.Ghost)
         {
             IngameUIManager.Instance.MeetingUI.SelectPlayerPanel();
             voteButtons.SetActive(true);
         }
+    }
+
+    public void Select()
+    {
+        var myCharacter = AmongUsRoomPlayer.MyRoomPlayer.myCharacter as IngameCharacterMover;
+        myCharacter.CmdVoteEjectPlayer(targetPlayer.playerColor);
+        Unselect();
     }
 
     public void Unselect()

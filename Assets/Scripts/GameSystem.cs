@@ -23,6 +23,13 @@ public class GameSystem : NetworkBehaviour
     [SyncVar]
     public int killRange;
 
+    //skip한 플레이어 카운트
+    [SyncVar]
+    public int skipVotePlayerCount;
+
+    //남은 회의 시간
+    [SyncVar]
+    public float remainTime;
 
     [SerializeField]
     private Light2D shadowLight;
@@ -150,6 +157,7 @@ public class GameSystem : NetworkBehaviour
     public void StartReportMeeting(EPlayerColor deadbodyColor)
     {
         RpcSendReportSign(deadbodyColor);
+        StartCoroutine(MeetingProcess_Coroutine());
     }
 
     private IEnumerator StartMeeting_Coroutine()
@@ -157,6 +165,78 @@ public class GameSystem : NetworkBehaviour
         yield return new WaitForSeconds(3f);
         IngameUIManager.Instance.ReportUI.Close();
         IngameUIManager.Instance.MeetingUI.Open();
+        
+        //회의상태 Meeting으로 변경
+        IngameUIManager.Instance.MeetingUI.ChangeMeetingState(EMeetingState.Meeting);
+    }
+
+    private IEnumerator MeetingProcess_Coroutine()
+    {
+        //회의 시간에 투표 못하게
+        var players = FindObjectsOfType<IngameCharacterMover>();
+        foreach (var player in players) player.isVote = true;
+
+        yield return new WaitForSeconds(3f);
+
+        var manager = NetworkManager.singleton as AmongUsRoomManager;
+        //미팅시간
+        remainTime = manager.gameRuleData.meetingsTime;
+        while (true)
+        {
+            remainTime -= Time.deltaTime;
+            yield return null;
+            if (remainTime <= 0f) break;
+        }
+
+        //미팅 후 값 초기화
+        skipVotePlayerCount = 0;
+        foreach (var player in players)
+        {
+            if ((player.playerType & EPlayerType.Ghost) != EPlayerType.Ghost)
+            {
+                player.isVote = false;
+            }
+            player.vote = 0;
+        }
+
+        //투표시간
+        RpcStartVoteTime();
+        remainTime = manager.gameRuleData.voteTime;
+        while (true)
+        {
+            remainTime -= Time.deltaTime;
+            yield return null;
+            if (remainTime <= 0f) break;
+        }
+
+        //투표안한 플레이어 강제 스킵
+        foreach (var player in players)
+        {
+            //투표하지않았고 살아있는 플레이어라면
+            if (!player.isVote && (player.playerType & EPlayerType.Ghost) != EPlayerType.Ghost)
+            {
+                player.isVote = true;
+                skipVotePlayerCount += 1;
+                RpcSignSkipVote(player.playerColor);
+            }
+        }
+
+        RpcEndVoteTime();
+    }
+
+    //투표시작알림함수
+    [ClientRpc]
+    public void RpcStartVoteTime()
+    {
+        //회의상태 Vote으로 변경
+        IngameUIManager.Instance.MeetingUI.ChangeMeetingState(EMeetingState.Vote);
+    }
+
+    //투표시작종료함수
+    [ClientRpc]
+    public void RpcEndVoteTime()
+    {
+        IngameUIManager.Instance.MeetingUI.CompleteVote();
     }
 
     [ClientRpc]
@@ -165,5 +245,19 @@ public class GameSystem : NetworkBehaviour
         IngameUIManager.Instance.ReportUI.Open(deadbodyColor);
 
         StartCoroutine(StartMeeting_Coroutine());
+    }
+
+    //
+    [ClientRpc]
+    public void RpcSignVoteEject(EPlayerColor voterColor, EPlayerColor ejectColor)
+    {
+        IngameUIManager.Instance.MeetingUI.UpdateVote(voterColor, ejectColor);
+    }
+
+    //투표스킵한 플레이어를 클라이언트MeetingUI에 알려주고 업데이트 기능
+    [ClientRpc]
+    public void RpcSignSkipVote(EPlayerColor skipVotePlayerColor)
+    {
+        IngameUIManager.Instance.MeetingUI.UpdateSkipVotePlayer(skipVotePlayerColor);
     }
 }

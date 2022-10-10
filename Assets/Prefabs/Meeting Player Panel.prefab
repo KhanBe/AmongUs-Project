@@ -550,7 +550,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5688958625990770380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1067598623381773672}
+        m_TargetAssemblyTypeName: MeetingPlayerPanel, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7107657701724776874
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +665,9 @@ MonoBehaviour:
   reportSign: {fileID: 8348650884997435847}
   voteButtons: {fileID: 4369550200514171430}
   targetPlayer: {fileID: 0}
+  voteSign: {fileID: 274300449684374296}
+  voterPrefab: {fileID: 7968934768198710802, guid: e082bcd36600d404caa1be9e1f2c5e97, type: 3}
+  voterParentTransform: {fileID: 7107657702313932740}
 --- !u!114 &4335914240899800646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7107657702313932740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -744,7 +759,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -109.1, y: -11.1}
-  m_SizeDelta: {x: 30, y: 25}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &7107657702313932738
 MonoBehaviour:

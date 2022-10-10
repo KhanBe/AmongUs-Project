@@ -835,7 +835,7 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
-      Hash: 2b4b0bd050030d04a671b4d1ff48393c
+      Hash: abc8047af0fbe565dc3f1e074aef595a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MeetingPlayerPanel
@@ -1315,7 +1315,7 @@ ScriptsOnlyBuild:
     className: BasicAuthenticator
   - hash:
       serializedVersion: 2
-      Hash: 04f8d9f828219641b118e09353cccefb
+      Hash: 32e2364f1ce472105679a6a22b031915
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MeetingUI
@@ -1627,7 +1627,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 6522d814a2896474ef06aa216dea58c4
+      Hash: 551cdb6392393aca24a092d1319c0639
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IngameCharacterMover
@@ -1669,7 +1669,7 @@ ScriptsOnlyBuild:
     className: NetworkStartPosition
   - hash:
       serializedVersion: 2
-      Hash: 2fddb6de4280d30fc1fc6d3ee54500fb
+      Hash: 18225893fc4d534ad40204b7dceaaae3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameSystem
