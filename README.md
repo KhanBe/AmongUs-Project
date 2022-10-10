@@ -12,8 +12,6 @@
 ## Sprite
 - spriters-resource.com
 
----
-
 ## 일지
 
 <details>
@@ -416,6 +414,27 @@
  
  **1. Vote 기능 구현**
 
+ ---
+ 
+</details>
+
+<details>
+ <summary>2022-10-10</summary>
+ 
+ **1. 투표 기능 구현**
+ - 투표 스킵 기능 구현
+ - 투표 시간제한 구현
+ - Mathf.Clamp(value, min, max) : value가 범위보다 작으면 min반환, max보다 크면 max반환
+ ex)
+ ```
+ if (meetingState == EMeetingState.Meeting)
+ {
+     meetingTimeText.text = string.Format("회의시간 : {0}s", (int)Mathf.Clamp(GameSystem.Instance.remainTime, 0f, float.MaxValue));
+ }
+ ```
+ 
+ - 투표 스킵되면 이미 활성화된 Select버튼과 Cancel버튼중 Select버튼을 누르면 투표가 되는 버그 있음
+ 
  ---
  
 </details>
