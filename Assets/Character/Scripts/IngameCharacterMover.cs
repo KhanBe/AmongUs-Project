@@ -139,32 +139,39 @@ public class IngameCharacterMover : CharacterMover
         {
             //킬시 임포스터가 시체쪽으로 이동
             RpcTeleport(target.transform.position);
-            target.Dead(playerColor);
+            target.Dead(false, playerColor);
             killCooldown = GameSystem.Instance.killCooldown;
         }
     }
 
     //타깃 크루원 죽는 기능처리 함수
-    public void Dead(EPlayerColor imposterColor)
+    public void Dead(bool isEject, EPlayerColor imposterColor = EPlayerColor.Black)
     {
         playerType |= EPlayerType.Ghost;
-        RpcDead(imposterColor, playerColor);
-        var manager = NetworkRoomManager.singleton as AmongUsRoomManager;
+        RpcDead(isEject, imposterColor, playerColor);
 
-        //인스턴스화
-        var deadbody = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation).GetComponent<Deadbody>();
-        NetworkServer.Spawn(deadbody.gameObject);//시체 생성
-        deadbody.RpcSetColor(playerColor);
+        //추방으로 죽은게 아닐 때
+        if (!isEject)
+        {
+            var manager = NetworkRoomManager.singleton as AmongUsRoomManager;
+            //인스턴스화
+            var deadbody = Instantiate(manager.spawnPrefabs[1], transform.position, transform.rotation).GetComponent<Deadbody>();
+            NetworkServer.Spawn(deadbody.gameObject);//시체 생성
+            deadbody.RpcSetColor(playerColor);
+        }
     }
 
     [ClientRpc]
-    private void RpcDead(EPlayerColor imposterColor, EPlayerColor crewColor)
+    private void RpcDead(bool isEject, EPlayerColor imposterColor, EPlayerColor crewColor)
     {
         //죽은 크루원이 자신이면
         if (hasAuthority)
         {
             animator.SetBool("isGhost", true);
-            IngameUIManager.Instance.KillUI.Open(imposterColor, crewColor);
+            if (!isEject)
+            {
+                IngameUIManager.Instance.KillUI.Open(imposterColor, crewColor);
+            }
 
             var players = GameSystem.Instance.GetPlayerList();
             

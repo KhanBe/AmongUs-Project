@@ -115,7 +115,7 @@ public class MeetingUI : MonoBehaviour
         voter.material.SetColor("_PlayerColor", PlayerColor.GetColor(skipVotePlayerColor));
 
         //버튼 비활성화
-        skipVoteButton.SetActive(false);
+        //skipVoteButton.SetActive(false); (버그)
     }
 
     public void OnClickSkipVoteButton()
@@ -133,7 +133,11 @@ public class MeetingUI : MonoBehaviour
     //투표 끝난 후
     public void CompleteVote()
     {
-        foreach (var panel in meetingPlayerPanels) panel.OpenResult();
+        foreach (var panel in meetingPlayerPanels)
+        {
+            panel.OpenResult();
+            panel.Unselect();
+        }
 
         skipVoteButton.SetActive(false);
         skipVotePlayers.SetActive(true);
@@ -151,5 +155,10 @@ public class MeetingUI : MonoBehaviour
         {
             meetingTimeText.text = string.Format("투표시간 : {0}s", (int)Mathf.Clamp(GameSystem.Instance.remainTime, 0f, float.MaxValue));
         }
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="Assets\UI\Online UI\Scripts\OnlineUI.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
     <Compile Include="Assets\UI\Scripts\KillUI.cs" />
+    <Compile Include="Assets\UI\Scripts\MeetingPlayerPanel.cs" />
     <Compile Include="Assets\Scripts\AmongUsRoomPlayer.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRuleItem.cs" />
     <Compile Include="Assets\UI\Scripts\MinimapUI.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\AmongUsGamePlayer.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\LobbyUIManager.cs" />
     <Compile Include="Assets\Scripts\SpawnPositions.cs" />
+    <Compile Include="Assets\UI\Scripts\MeetingUI.cs" />
     <Compile Include="Assets\Map\TheSkeld\Scripts\WeaponPipeLightStarter.cs" />
     <Compile Include="Assets\Scripts\SortingSprite.cs" />
     <Compile Include="Assets\UI\Online UI\Scripts\CreateRoomUI.cs" />
@@ -94,8 +96,7 @@
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
     <Compile Include="Assets\UI\Scripts\IngameUIManager.cs" />
     <Compile Include="Assets\Scripts\PlayerFinder.cs" />
-    <Compile Include="Assets\UI\Scripts\MeetingPlayerPanel.cs" />
-    <Compile Include="Assets\UI\Scripts\MeetingUI.cs" />
+    <Compile Include="Assets\UI\Scripts\EjectionUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

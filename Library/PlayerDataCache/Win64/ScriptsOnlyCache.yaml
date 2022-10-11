@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - CustomizeLaptop
     - CustomizeUI
     - Deadbody
+    - EjectionUI
     - EngineBody
     - FloatingCrew
     - GameRoomPlayerCounter
@@ -218,6 +219,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 8214}
     - Class: 114
       Script: {instanceID: 8240}
+    - Class: 114
+      Script: {instanceID: 54354}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2113,7 +2116,7 @@ ScriptsOnlyBuild:
     className: ChatNetworkManager
   - hash:
       serializedVersion: 2
-      Hash: 8896ab8696d46d4175ada2b8d4e56ca7
+      Hash: 61f1e84300f17a1ae635d07c486a1517
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IngameUIManager
@@ -2219,6 +2222,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
+  - hash:
+      serializedVersion: 2
+      Hash: 75b78ee8f2f95c7a57d5efadeb5ab365
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EjectionUI
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

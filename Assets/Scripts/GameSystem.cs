@@ -75,15 +75,8 @@ public class GameSystem : NetworkBehaviour
                 i--;
         }
 
-        //캐릭터 배치
-        for (int i = 0; i <players.Count; i++)
-        {
-            float radian = (2f * Mathf.PI) / players.Count;
-            radian *= i;
-
-            //transform.position으로 변경하면 동기화가 안됨
-            players[i].RpcTeleport(spawnTransform.position + (new Vector3(Mathf.Cos(radian), Mathf.Sin(radian), 0f) * spawnDistance));
-        }
+        //List에서 배열형태로 ToArray
+        AllocatePlayerToAroundTable(players.ToArray());
 
         yield return new WaitForSeconds(2f);
         RpcStartGame();
@@ -91,6 +84,19 @@ public class GameSystem : NetworkBehaviour
         foreach (var player in players)
         {
             player.SetKillCooldown();
+        }
+    }
+
+    private void AllocatePlayerToAroundTable(IngameCharacterMover[] players)
+    {
+        //캐릭터 배치
+        for (int i = 0; i < players.Length; i++)
+        {
+            float radian = (2f * Mathf.PI) / players.Length;
+            radian *= i;
+
+            //transform.position으로 변경하면 동기화가 안됨
+            players[i].RpcTeleport(spawnTransform.position + (new Vector3(Mathf.Cos(radian), Mathf.Sin(radian), 0f) * spawnDistance));
         }
     }
 
@@ -222,6 +228,84 @@ public class GameSystem : NetworkBehaviour
         }
 
         RpcEndVoteTime();
+
+        yield return new WaitForSeconds(3f);
+
+        StartCoroutine(CalculateVoteResult_Coroutine(players));
+    }
+
+    private class characterVoteComparer : IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            IngameCharacterMover xPlayer = (IngameCharacterMover)x;
+            IngameCharacterMover yPlayer = (IngameCharacterMover)y;
+            return xPlayer.vote <= yPlayer.vote ? 1 : -1;
+        }
+    }
+
+    //서버에서 호출
+    private IEnumerator CalculateVoteResult_Coroutine(IngameCharacterMover[] players)
+    {
+        System.Array.Sort(players, new characterVoteComparer());
+
+        int remainImposter = 0;
+
+        foreach (var player in players)
+        {
+            if ((player.playerType & EPlayerType.Imposter_Alive) == EPlayerType.Imposter_Alive)
+            {
+                remainImposter++;
+            }
+        }
+        //스킵수가 많다면 추방당하지 않음
+        if (skipVotePlayerCount >= players[0].vote)
+        {
+            RpcOpenEjectionUI(false, EPlayerColor.Black, false, remainImposter);
+        }
+        //1순위 2순위 투표수가 같아도 추방당하지 않음
+        else if (players[0].vote == players[1].vote)
+        {
+            RpcOpenEjectionUI(false, EPlayerColor.Black, false, remainImposter);
+        }
+        //스캅수,2순위 보다 1순위표수가 많으면 1순위 추방
+        else
+        {
+            bool isImposter = (players[0].playerType & EPlayerType.Imposter) == EPlayerType.Imposter;
+            RpcOpenEjectionUI(true, players[0].playerColor, isImposter, isImposter ? remainImposter - 1 : remainImposter);
+
+            players[0].Dead(true);
+        }
+
+        //추방 후 시체 제거
+        var deadbodies = FindObjectsOfType<Deadbody>();
+        for (int i = 0; i < deadbodies.Length; i++)
+        {
+            Destroy(deadbodies[i].gameObject);
+        }
+
+        //플레이어 테이블 배치
+        AllocatePlayerToAroundTable(players);
+
+        yield return new WaitForSeconds(10f);
+
+        RpcCloseEjectionUI();
+    }
+
+    //클라이언트에서 호출
+    [ClientRpc]
+    public void RpcOpenEjectionUI(bool isEjection, EPlayerColor ejectionPlayerColor, bool isImposter, int remainImposterCount)
+    {
+        IngameUIManager.Instance.EjectionUI.Open(isEjection, ejectionPlayerColor, isImposter, remainImposterCount);
+        IngameUIManager.Instance.MeetingUI.Close();
+    }
+
+    //클라이언트에서 호출
+    [ClientRpc]
+    public void RpcCloseEjectionUI()
+    {
+        IngameUIManager.Instance.EjectionUI.Close();
+        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = true;
     }
 
     //투표시작알림함수
