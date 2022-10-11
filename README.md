@@ -433,9 +433,34 @@
  }
  ```
  
- - 투표 스킵되면 이미 활성화된 Select버튼과 Cancel버튼중 Select버튼을 누르면 투표가 되는 버그 있음
+ - 투표 스킵되면 이미 활성화된 Select버튼과 Cancel버튼중 Select버튼을 누르면 투표가 되는 버그 있음 **(해결)**
+ ```
+ //투표 끝난 후
+    public void CompleteVote()
+    {
+        foreach (var panel in meetingPlayerPanels)
+        {
+            panel.OpenResult();
+            panel.Unselect();//추가  : (Select버튼, Cancel버튼)을 비활성화 시키는 함수
+        }
+
+        skipVoteButton.SetActive(false);
+        skipVotePlayers.SetActive(true);
+    }
+ ```
+ 
+ - skip 버튼누르면 모든 플레이어의 skip버튼이 비활성화되는 버그 있음 **(해결)** , 그냥 비활성화 풀었음 
+ ---
+ 
+ </details>
+ 
+ <details>
+ <summary>2022-10-11</summary>
+ 
+ **1. Ejection UI 구현**
+ 
  
  ---
  
-</details>
+ </details>
 
