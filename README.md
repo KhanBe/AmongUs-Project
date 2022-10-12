@@ -463,4 +463,14 @@
  ---
  
  </details>
+ 
+ <details>
+ <summary>2022-10-12</summary>
+ 
+ **1. Task전선 미니게임 구현**
+ - 길이가 마우스에 맞춰 길어지는게 아니라, 마우스position보다 길어지는 현상이 있음
+ 
+ ---
+ 
+ </details>
 
