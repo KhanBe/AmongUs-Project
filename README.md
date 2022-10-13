@@ -473,4 +473,16 @@
  ---
  
  </details>
+ 
+ <details>
+ <summary>2022-10-13</summary>
+ 
+ **1. Task전선 미니게임 구현**
+ - 길이가 마우스에 맞춰 길어지는게 아니라, 마우스position보다 길어지는 현상이 있음 (해결)
+ - TaskUI의 size 값을 1.5에서 1로 맞춤
+ - 전선 이어 붙히기
+ 
+ ---
+ 
+ </details>
 
