@@ -71,6 +71,7 @@
     <Compile Include="Assets\UI\Scripts\ReportButtonUI.cs" />
     <Compile Include="Assets\UI\Scripts\ReportUI.cs" />
     <Compile Include="Assets\Scripts\AmongUsGamePlayer.cs" />
+    <Compile Include="Assets\UI\Scripts\Tasks\LeftWire.cs" />
     <Compile Include="Assets\UI\GameRoom\Scripts\LobbyUIManager.cs" />
     <Compile Include="Assets\Scripts\SpawnPositions.cs" />
     <Compile Include="Assets\UI\Scripts\MeetingUI.cs" />
@@ -97,7 +98,8 @@
     <Compile Include="Assets\UI\GameRoom\Scripts\GameRoomSettinsUI.cs" />
     <Compile Include="Assets\UI\Scripts\IngameUIManager.cs" />
     <Compile Include="Assets\Scripts\PlayerFinder.cs" />
-    <Compile Include="Assets\UI\Scripts\LeftWire.cs" />
+    <Compile Include="Assets\UI\Scripts\Tasks\RightWire.cs" />
+    <Compile Include="Assets\UI\Scripts\Tasks\FixWiringTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
