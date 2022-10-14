@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EWireColor
+{
+    None = -1,
+    Red,
+    Blue,
+    Yellow,
+    Magenta
+}
+
 public class FixWiringTask : MonoBehaviour
 {
     [SerializeField]
@@ -12,7 +21,37 @@ public class FixWiringTask : MonoBehaviour
 
     private LeftWire mSelectedWire;
 
-    void FixedUpdate()
+    //활성화시 작동함수
+    private void OnEnable()
+    {
+        List<int> numberPool = new List<int>();
+
+        //왼쪽 선 색상 랜덤 지정
+        for (int i = 0; i < 4; i++) numberPool.Add(i);
+
+        int index = 0;
+        while (numberPool.Count != 0)
+        {
+            var number = numberPool[Random.Range(0, numberPool.Count)];
+
+            mLeftWires[index++].SetWireColor((EWireColor)number);
+            numberPool.Remove(number);
+        }
+
+        //오른쪽 선 색상 랜덤 지정
+        for (int i = 0; i < 4; i++) numberPool.Add(i);
+
+        index = 0;
+        while (numberPool.Count != 0)
+        {
+            var number = numberPool[Random.Range(0, numberPool.Count)];
+
+            mRightWires[index++].SetWireColor((EWireColor)number);
+            numberPool.Remove(number);
+        }
+    }
+
+    void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -42,13 +81,15 @@ public class FixWiringTask : MonoBehaviour
                         if (right != null)
                         {
                             mSelectedWire.SetTarget(hit.transform.position, 50f);
-
+                            mSelectedWire.ConnectWire(right);//left
+                            right.ConnectWire(mSelectedWire);//right
                             mSelectedWire = null;
                             return;
                         }
                     }
                 }
                 mSelectedWire.ResetTarget();
+                mSelectedWire.DisconnectWire();
                 mSelectedWire = null;
             }
         }
