@@ -486,3 +486,15 @@
  
  </details>
 
+ <details>
+ <summary>2022-10-14</summary>
+ 
+ **1. Task전선 미니게임 구현**
+ - 전선 색상 랜덤 지정
+ - 전선 연결 색상일치 시 불빛 구현
+ - 전선 클릭이 잘 안되는 문제 > FixedUpdate에서 Update로 변경
+ 
+ ---
+ 
+ </details>
+
