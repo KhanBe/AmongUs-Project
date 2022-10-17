@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OutlineObject : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
 
     [SerializeField]
     private Color OutlineColor;
@@ -19,7 +19,7 @@ public class OutlineObject : MonoBehaviour
         spriteRenderer.material.SetColor("_OutlineColor", OutlineColor);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         var character = collision.GetComponent<CharacterMover>();
 
@@ -30,7 +30,7 @@ public class OutlineObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         var character = collision.GetComponent<CharacterMover>();
 

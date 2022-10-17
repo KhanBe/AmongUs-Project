@@ -24,6 +24,13 @@ public class FixWiringTask : MonoBehaviour
     //활성화시 작동함수
     private void OnEnable()
     {
+        //초기화
+        for (int i =0; i < mLeftWires.Count;i++)
+        {
+            mLeftWires[i].ResetTarget();
+            mLeftWires[i].DisconnectWire();
+        }
+
         List<int> numberPool = new List<int>();
 
         //왼쪽 선 색상 랜덤 지정
@@ -80,17 +87,21 @@ public class FixWiringTask : MonoBehaviour
 
                         if (right != null)
                         {
+                            //연결되었을 때
                             mSelectedWire.SetTarget(hit.transform.position, 50f);
                             mSelectedWire.ConnectWire(right);//left
                             right.ConnectWire(mSelectedWire);//right
                             mSelectedWire = null;
+                            CheckCompleteTask();
                             return;
                         }
                     }
                 }
+                //연결 끊어졌을 때
                 mSelectedWire.ResetTarget();
                 mSelectedWire.DisconnectWire();
                 mSelectedWire = null;
+                CheckCompleteTask();
             }
         }
 
@@ -98,5 +109,35 @@ public class FixWiringTask : MonoBehaviour
         {
             mSelectedWire.SetTarget(Input.mousePosition, 20f);
         }
+    }
+
+    private void CheckCompleteTask()
+    {
+        bool isAllComplete = true;
+
+        foreach (var wire in mLeftWires)
+        {
+            if (!wire.IsConnected)
+            {
+                isAllComplete = false;
+                break;
+            }
+        }
+
+        if (isAllComplete) Close();
+    }
+
+    public void Open()
+    {
+        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = false;
+        gameObject.transform.parent.gameObject.SetActive(true);
+        gameObject.SetActive(true);
+    }
+
+    public void Close()
+    {
+        AmongUsRoomPlayer.MyRoomPlayer.myCharacter.IsMoveable = true;
+        gameObject.transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
