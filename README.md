@@ -9,6 +9,9 @@
 - 유니티
 - C#
 
+## 소스코드
+- https://github.com/KhanBe/AmongUs-Project/tree/main/Assets/Scripts
+
 ## Sprite
 - spriters-resource.com
 
